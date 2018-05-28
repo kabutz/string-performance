@@ -1,0 +1,59 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "2.0.2" apply false
+    id "java"
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+subprojects { subproj ->
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    ext {
+        release = '7'
+    }
+
+    dependencies {
+        compile "org.openjdk.jmh:jmh-core:1.20"
+        compile "org.openjdk.jol:jol-core:0.9"
+        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.20"
+    }
+
+    compileJava {
+        doFirst {
+            options.compilerArgs.addAll(['--release', "${-> release}"])
+        }
+    }
+
+    shadowJar {
+        classifier = 'benchmarks'
+        manifest {
+            attributes 'Main-Class': 'org.openjdk.jmh.Main'
+        }
+    }
+}
+
+project('jdk-8') {
+    release = '7'
+    sourceCompatibility = targetCompatibility = 1.7
+}
+
+project('jdk-9') {
+    release = '9'
+    sourceCompatibility = targetCompatibility = 1.9
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java'] + project(":jdk-8").sourceSets.main.java.srcDirs
+            }
+            resources {
+                srcDirs = ['src/main/resources'] + project(":jdk-8").sourceSets.main.resources.srcDirs
+            }
+        }
+    }
+}
