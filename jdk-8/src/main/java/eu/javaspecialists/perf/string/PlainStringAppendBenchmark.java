@@ -8,15 +8,8 @@ import java.lang.management.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(value = 3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
-@State(Scope.Benchmark)
 public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark{
-  private StringAppenderHelper helper;
-
   @Benchmark
   public void withoutAnyStringAppending(Blackhole bh) {
     bh.consume(nextString());
