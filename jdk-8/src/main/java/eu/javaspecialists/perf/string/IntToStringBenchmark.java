@@ -3,13 +3,12 @@ package eu.javaspecialists.perf.string;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.*;
 
-import java.lang.invoke.*;
 import java.util.concurrent.*;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(3)
-@Warmup(iterations = 5)
+@Warmup(iterations = 10)
 @Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public class IntToStringBenchmark {
