@@ -16,11 +16,11 @@ import java.util.concurrent.*;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 10)
-@Measurement(iterations = 10)
+@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public abstract class AbstractStringAppendBenchmark {
-  private static final int NUMBER_OF_DIFFERENT_STRINGS = 1024;
-  private static final int MASK = NUMBER_OF_DIFFERENT_STRINGS - 1;
+  private static final int NUMBER_OF_DIFFERENT_VALUES = 1024;
+  private static final int MASK = NUMBER_OF_DIFFERENT_VALUES - 1;
   private final static ThreadMXBean tmb = ManagementFactory.getThreadMXBean();
   private String[] values;
   private int nextNumber;
@@ -38,7 +38,7 @@ public abstract class AbstractStringAppendBenchmark {
   }
   @Setup
   public void setup() {
-    values = ThreadLocalRandom.current().ints(NUMBER_OF_DIFFERENT_STRINGS, 0, 100_000_000)
+    values = ThreadLocalRandom.current().ints(NUMBER_OF_DIFFERENT_VALUES, 0, 100_000_000)
         .parallel()
         .mapToObj(Integer::toString)
         .toArray(String[]::new);
