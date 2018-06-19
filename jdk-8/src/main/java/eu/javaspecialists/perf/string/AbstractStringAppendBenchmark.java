@@ -15,8 +15,8 @@ import java.util.concurrent.*;
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Warmup(iterations = 10)
-@Measurement(iterations = 20)
+@Warmup(iterations = 5)
+@Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public abstract class AbstractStringAppendBenchmark {
   private static final int NUMBER_OF_DIFFERENT_VALUES = 1024;
