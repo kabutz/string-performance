@@ -18,9 +18,9 @@ subprojects { subproj ->
     }
 
     dependencies {
-        compile "org.openjdk.jmh:jmh-core:1.20"
+        compile "org.openjdk.jmh:jmh-core:1.21"
         compile "org.openjdk.jol:jol-core:0.9"
-        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.20"
+        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
     }
 
     compileJava {
