@@ -8,8 +8,8 @@ import java.util.concurrent.*;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(3)
-@Warmup(iterations = 5)
-@Measurement(iterations = 10)
+@Warmup(iterations = 10)
+@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class IntToStringBenchmark {
   @Param({"1", "0", "1640531527"})
