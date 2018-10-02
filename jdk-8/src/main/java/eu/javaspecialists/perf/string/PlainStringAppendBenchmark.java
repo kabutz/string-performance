@@ -8,7 +8,7 @@ import java.lang.management.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-@Fork(value = 3)
+@Fork(3)
 public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark{
   @Benchmark
   public void withoutAnyStringAppending(Blackhole bh) {
