@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "2.0.2" apply false
+    id "com.github.johnrengelman.shadow" version "2.0.4" apply false
     id "java"
 }
 
@@ -42,9 +42,9 @@ project('jdk-8') {
     sourceCompatibility = targetCompatibility = 1.8
 }
 
-project('jdk-9') {
-    release = '9'
-    sourceCompatibility = targetCompatibility = 1.9
+project('jdk-11') {
+    release = '11'
+    sourceCompatibility = targetCompatibility = 11
 
     sourceSets {
         main {
