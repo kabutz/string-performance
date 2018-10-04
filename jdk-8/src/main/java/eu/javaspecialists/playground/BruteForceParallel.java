@@ -5,14 +5,14 @@ package eu.javaspecialists.playground;
  */
 public class BruteForceParallel {
   private static long numbers;
-  private static final byte[] chars = new byte[26 * 2];
+  private static final byte[] alphabet = new byte[26 * 2];
 
   static {
     for (int i = 0; i < 26; i++) {
-      chars[i] = (byte) ('A' + i);
-      chars[i + 26] = (byte) ('a' + i);
+      alphabet[i] = (byte) ('A' + i);
+      alphabet[i + 26] = (byte) ('a' + i);
     }
-    System.out.println("new String(chars) = " + new String(chars));
+    System.out.println("new String(alphabet) = " + new String(alphabet));
   }
 
   public static void main(String[] args) {
@@ -21,29 +21,23 @@ public class BruteForceParallel {
       int to = from + 13;
       new Thread(() -> {
         for (int index = from; index < to; index++) {
-          byte i0 = chars[index];
+          byte i0 = alphabet[index];
           int h0 = i0;
-          for (byte i1 : chars) {
+          for (byte i1 : alphabet) {
             int h1 = h0 * 31 + i1;
-            for (byte i2 : chars) {
+            for (byte i2 : alphabet) {
               int h2 = h1 * 31 + i2;
-              for (byte i3 : chars) {
+              for (byte i3 : alphabet) {
                 int h3 = h2 * 31 + i3;
-                for (byte i4 : chars) {
+                for (byte i4 : alphabet) {
                   int h4 = h3 * 31 + i4;
-                  for (byte i5 : chars) {
+                  for (byte i5 : alphabet) {
                     int h5 = h4 * 31 + i5;
-                    for (byte i6 : chars) {
+                    for (byte i6 : alphabet) {
                       int h6 = h5 * 31 + i6;
                       if (h6 == 0) {
-                        System.out.print((char) i0);
-                        System.out.print((char) i1);
-                        System.out.print((char) i2);
-                        System.out.print((char) i3);
-                        System.out.print((char) i4);
-                        System.out.print((char) i5);
-                        System.out.print((char) i6);
-                        System.out.println();
+                        byte[] is = {i0, i1, i2, i3, i4, i5, i6};
+                        System.out.println(new String(is));
                       }
                     }
                   }
