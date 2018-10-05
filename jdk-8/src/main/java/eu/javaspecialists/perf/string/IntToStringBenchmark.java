@@ -19,8 +19,9 @@ public class IntToStringBenchmark {
 
   @Setup
   public void setup() {
-    value = 100;
+    value = (int) System.nanoTime();
   }
+
 
   @Benchmark
   public void lazyIntToString(Blackhole bh) {
