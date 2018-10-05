@@ -18,7 +18,8 @@ public class IntToStringStudious {
       test();
     }
     System.out.println("s = " + s);
-    System.out.println("bestTime = " + bestTime);
+    System.out.println("bestTime = " + bestTime / 1000000);
+    System.out.println();
   }
 
   private static void test() {

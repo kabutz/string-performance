@@ -1,0 +1,24 @@
+Description	Best	Fork 1	Fork 2	Fork 3	Fork 4	Fork 5	Fork 6
+Lazy: Java 6 JVM, Java 6 Class	4158	4219	4188	4187	4197	4158	4172
+Studious: Java 6 JVM, Java 6 Class	3818	3820	3851	3847	3896	3848	3818
+Lazy: Java 6 JVM, Java 6 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	3935	3975	3955	3945	3943	3956	3935
+Studious: Java 6 JVM, Java 6 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	3718	3767	3729	3726	3736	3718	3738
+							
+Lazy: Java 7 JVM, Java 7 Class	2334	2421	2335	2369	2334	2335	2339
+Studious: Java 7 JVM, Java 7 Class	2940	2970	2968	2956	2951	2940	2954
+Lazy: Java 7 JVM, Java 7 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2336	2360	2343	2344	2336	2339	2353
+Studious: Java 7 JVM, Java 7 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2946	2967	2973	2966	2963	2999	2946
+
+Lazy: Java 8 JVM, Java 8 Class	2205	2206	2211	2205	2205	2209	2205
+Studious: Java 8 JVM, Java 8 Class	3055	3055	3060	3068	3061	3059	3072
+Lazy: Java 8 JVM, Java 8 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2209	2217	2217	2209	2210	2226	2212
+Studious: Java 8 JVM, Java 8 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	3068	3082	3084	3079	3070	3114	3068
+
+Lazy: Java 11 JVM, Java 11 Class	1995	2027	2037	2000	1995	2030	2036
+Studious: Java 11 JVM, Java 11 Class	2047	2075	2061	2062	2086	2059	2047
+Lazy: Java 11 JVM, Java 6 Class	2743	2753	2758	2753	2759	2749	2743
+Studious: Java 11 JVM, Java 6 Class	2050	2077	2052	2070	2057	2070	2050
+Lazy: Java 11 JVM, Java 11 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	1616	1668	1686	1624	1681	1722	1616
+Studious: Java 11 JVM, Java 11 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	1764	1817	1765	1764	1788	1786	1817
+Lazy: Java 11 JVM, Java 11 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings	1472	1479	1484	1474	1477	1472	1481
+Studious: Java 11 JVM, Java 11 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings	1645	1654	1662	1657	1657	1645	1658
