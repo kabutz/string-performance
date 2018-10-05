@@ -1,0 +1,286 @@
+compiling with Java 6
+compiling with Java 7
+compiling with Java 8
+compiling with Java 11
+out of box comparison
+IntToStringLazy on Apple Inc., Java HotSpot(TM) 64-Bit Server VM, Java 20.65-b04-468 : vm args []
+time = 4158ms
+time = 4240ms
+time = 4173ms
+time = 4179ms
+time = 4184ms
+time = 4171ms
+time = 4166ms
+time = 4168ms
+time = 4187ms
+time = 4167ms
+s = 99999999
+bestTime = 4158
+
+IntToStringStudious on Apple Inc., Java HotSpot(TM) 64-Bit Server VM, Java 20.65-b04-468 : vm args []
+time = 3950ms
+time = 3848ms
+time = 4013ms
+time = 4015ms
+time = 4078ms
+time = 4022ms
+time = 4058ms
+time = 3970ms
+time = 4042ms
+time = 4060ms
+s = 99999999
+bestTime = 3848
+
+IntToStringLazy on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 24.80-b11 : vm args []
+time = 2625ms
+time = 2335ms
+time = 2497ms
+time = 2496ms
+time = 2478ms
+time = 2487ms
+time = 2507ms
+time = 2494ms
+time = 2488ms
+time = 2482ms
+s = 99999999
+bestTime = 2335
+
+IntToStringStudious on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 24.80-b11 : vm args []
+time = 3295ms
+time = 3122ms
+time = 2984ms
+time = 2999ms
+time = 2987ms
+time = 2971ms
+time = 2972ms
+time = 2940ms
+time = 2952ms
+time = 2963ms
+s = 99999999
+bestTime = 2940
+
+IntToStringLazy on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 25.181-b13 : vm args []
+time = 2672ms
+time = 2441ms
+time = 2244ms
+time = 2215ms
+time = 2228ms
+time = 2209ms
+time = 2221ms
+time = 2218ms
+time = 2215ms
+time = 2212ms
+s = 99999999
+bestTime = 2209
+
+IntToStringStudious on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 25.181-b13 : vm args []
+time = 3508ms
+time = 3066ms
+time = 3087ms
+time = 3079ms
+time = 3117ms
+time = 3092ms
+time = 3078ms
+time = 3082ms
+time = 3103ms
+time = 3059ms
+s = 99999999
+bestTime = 3059
+
+IntToStringLazy on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args []
+time = 2030ms
+time = 2072ms
+time = 2076ms
+time = 2053ms
+time = 2070ms
+time = 2066ms
+time = 2050ms
+time = 2057ms
+time = 2054ms
+time = 2041ms
+s = 99999999
+bestTime = 2030
+
+IntToStringStudious on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args []
+time = 2059ms
+time = 2117ms
+time = 2135ms
+time = 2117ms
+time = 2115ms
+time = 2138ms
+time = 2147ms
+time = 2134ms
+time = 2128ms
+time = 2139ms
+s = 99999999
+bestTime = 2059
+
+IntToStringLazy on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args []
+time = 2863ms
+time = 3026ms
+time = 2773ms
+time = 2766ms
+time = 2775ms
+time = 2749ms
+time = 2762ms
+time = 2778ms
+time = 2782ms
+time = 2806ms
+s = 99999999
+bestTime = 2749
+
+IntToStringStudious on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args []
+time = 2070ms
+time = 2137ms
+time = 2157ms
+time = 2143ms
+time = 2133ms
+time = 2171ms
+time = 2118ms
+time = 2138ms
+time = 2109ms
+time = 2124ms
+s = 99999999
+bestTime = 2070
+
+fair comparisons
+IntToStringLazy on Apple Inc., Java HotSpot(TM) 64-Bit Server VM, Java 20.65-b04-468 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 4096ms
+time = 4007ms
+time = 3975ms
+time = 3976ms
+time = 3985ms
+time = 3968ms
+time = 3956ms
+time = 3963ms
+time = 3974ms
+time = 3973ms
+s = 99999999
+bestTime = 3956
+
+IntToStringStudious on Apple Inc., Java HotSpot(TM) 64-Bit Server VM, Java 20.65-b04-468 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 3860ms
+time = 3718ms
+time = 3867ms
+time = 3860ms
+time = 3866ms
+time = 3840ms
+time = 3873ms
+time = 3845ms
+time = 3843ms
+time = 3860ms
+s = 99999999
+bestTime = 3718
+
+IntToStringLazy on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 24.80-b11 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 2623ms
+time = 2339ms
+time = 2511ms
+time = 2504ms
+time = 2518ms
+time = 2513ms
+time = 2492ms
+time = 2501ms
+time = 2486ms
+time = 2484ms
+s = 99999999
+bestTime = 2339
+
+IntToStringStudious on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 24.80-b11 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 3347ms
+time = 3064ms
+time = 2999ms
+time = 3013ms
+time = 3116ms
+time = 3031ms
+time = 3020ms
+time = 3054ms
+time = 3044ms
+time = 3029ms
+s = 99999999
+bestTime = 2999
+
+IntToStringLazy on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 25.181-b13 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 2643ms
+time = 2553ms
+time = 2331ms
+time = 2360ms
+time = 2341ms
+time = 2271ms
+time = 2296ms
+time = 2226ms
+time = 2250ms
+time = 2229ms
+s = 99999999
+bestTime = 2226
+
+IntToStringStudious on Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, Java 25.181-b13 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 3406ms
+time = 3194ms
+time = 3117ms
+time = 3114ms
+time = 3120ms
+time = 3192ms
+time = 3225ms
+time = 3225ms
+time = 3193ms
+time = 3201ms
+s = 99999999
+bestTime = 3114
+
+IntToStringLazy on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 1984ms
+time = 1775ms
+time = 1781ms
+time = 1769ms
+time = 1722ms
+time = 1757ms
+time = 1774ms
+time = 1767ms
+time = 1767ms
+time = 1746ms
+s = 99999999
+bestTime = 1722
+
+IntToStringStudious on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC]
+time = 2184ms
+time = 1883ms
+time = 1913ms
+time = 1893ms
+time = 1799ms
+time = 1786ms
+time = 1817ms
+time = 1814ms
+time = 1804ms
+time = 1794ms
+s = 99999999
+bestTime = 1786
+
+IntToStringLazy on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC, -XX:-CompactStrings]
+time = 1950ms
+time = 1563ms
+time = 1513ms
+time = 1506ms
+time = 1477ms
+time = 1479ms
+time = 1484ms
+time = 1485ms
+time = 1472ms
+time = 1508ms
+s = 99999999
+bestTime = 1472
+
+IntToStringStudious on Oracle Corporation, OpenJDK 64-Bit Server VM, Java 11+28 : vm args [-Xmx8g, -XX:-TieredCompilation, -XX:+UseParallelGC, -XX:-CompactStrings]
+time = 2006ms
+time = 1726ms
+time = 1698ms
+time = 1668ms
+time = 1645ms
+time = 1654ms
+time = 1653ms
+time = 1656ms
+time = 1668ms
+time = 1668ms
+s = 99999999
+bestTime = 1645
+

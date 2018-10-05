@@ -18,26 +18,27 @@ $JAVA11/javac -d ../../../../test/j11 eu/javaspecialists/playground/IntToStringL
 cd ../../../..
 
 echo out of box comparison 
-$JAVA6/java -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
-$JAVA6/java -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
-$JAVA7/java -showversion -classpath test/j7 eu.javaspecialists.playground/IntToStringLazy
-$JAVA7/java -showversion -classpath test/j7 eu.javaspecialists.playground/IntToStringStudious
-$JAVA8/java -showversion -classpath test/j8 eu.javaspecialists.playground/IntToStringLazy
-$JAVA8/java -showversion -classpath test/j8 eu.javaspecialists.playground/IntToStringStudious
-$JAVA11/java -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
-$JAVA11/java -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
-$JAVA11/java -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
-$JAVA11/java -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
+$JAVA6/java -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
+$JAVA6/java -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
+$JAVA7/java -classpath test/j7 eu.javaspecialists.playground/IntToStringLazy
+$JAVA7/java -classpath test/j7 eu.javaspecialists.playground/IntToStringStudious
+$JAVA8/java -classpath test/j8 eu.javaspecialists.playground/IntToStringLazy
+$JAVA8/java -classpath test/j8 eu.javaspecialists.playground/IntToStringStudious
+$JAVA11/java -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
+$JAVA11/java -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
+$JAVA11/java -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
+$JAVA11/java -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
 
 echo fair comparisons
 
-$JAVA6/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
-$JAVA6/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
-$JAVA7/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j7 eu.javaspecialists.playground/IntToStringLazy
-$JAVA7/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j7 eu.javaspecialists.playground/IntToStringStudious
-$JAVA8/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j8 eu.javaspecialists.playground/IntToStringLazy
-$JAVA8/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j8 eu.javaspecialists.playground/IntToStringStudious
-$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
-$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
-$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
-$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings -showversion -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
+$JAVA6/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
+$JAVA6/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j6 eu.javaspecialists.playground/IntToStringStudious
+$JAVA7/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j7 eu.javaspecialists.playground/IntToStringLazy
+$JAVA7/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j7 eu.javaspecialists.playground/IntToStringStudious
+$JAVA8/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j8 eu.javaspecialists.playground/IntToStringLazy
+$JAVA8/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j8 eu.javaspecialists.playground/IntToStringStudious
+$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
+$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
+$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings -classpath test/j11 eu.javaspecialists.playground/IntToStringLazy
+$JAVA11/java -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -XX:-CompactStrings -classpath test/j11 eu.javaspecialists.playground/IntToStringStudious
+
