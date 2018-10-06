@@ -3,7 +3,7 @@ package eu.javaspecialists.playground.hasher;
 public abstract class BruteForceBase {
   protected static final byte[] alphabet = new byte[26 * 2];
   protected static long number;
-  private final static boolean DEBUG = true;
+  private final static boolean DEBUG = false;
   protected static long time;
 
   static {
@@ -22,7 +22,6 @@ public abstract class BruteForceBase {
         time = System.nanoTime() - time;
         System.out.println("start = " + time / 1_000_000 + "ms");
         time = System.nanoTime();
-        System.exit(1);
       }
     }
   }
