@@ -5,17 +5,17 @@ JAVA11=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/bin
 
 mkdir -p test/j6 test/j7 test/j8 test/j11
 
-cd jdk-8/src/main/java
+cd src/main/java
 echo compiling with Java 6
-$JAVA6/javac -d ../../../../test/j6 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
+$JAVA6/javac -d ../../../test/j6 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
 echo compiling with Java 7
-$JAVA7/javac -d ../../../../test/j7 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
+$JAVA7/javac -d ../../../test/j7 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
 echo compiling with Java 8
-$JAVA8/javac -d ../../../../test/j8 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
+$JAVA8/javac -d ../../../test/j8 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
 echo compiling with Java 11
-$JAVA11/javac -d ../../../../test/j11 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
+$JAVA11/javac -d ../../../test/j11 eu/javaspecialists/playground/IntToStringLazy.java eu/javaspecialists/playground/IntToStringStudious.java 
 
-cd ../../../..
+cd ../../..
 
 echo out of box comparison 
 $JAVA6/java -classpath test/j6 eu.javaspecialists.playground/IntToStringLazy
