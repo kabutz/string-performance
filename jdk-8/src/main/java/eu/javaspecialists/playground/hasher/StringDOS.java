@@ -1,4 +1,4 @@
-package eu.javaspecialists.playground;
+package eu.javaspecialists.playground.hasher;
 
 import java.util.*;
 
