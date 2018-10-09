@@ -1,9 +1,8 @@
 package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.*;
 
-import java.util.concurrent.*;
+import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -12,28 +11,21 @@ import java.util.concurrent.*;
 @Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class IntToStringBenchmark {
-  @Param({"1", "0", "1640531527"})
-  private int INCREMENT;
-
+  @Param("1640531527")
   private int value;
 
-  @Setup
-  public void setup() {
-    value = (int) System.nanoTime();
-  }
-
-
   @Benchmark
-  public void lazyIntToString(Blackhole bh) {
-    bh.consume("" + nextValue());
+  public String concat() {
+    return "" + value;
   }
 
   @Benchmark
-  public void studiousIntToString1(Blackhole bh) {
-    bh.consume(Integer.toString(nextValue()));
+  public String integer_toString() {
+    return Integer.toString(value);
   }
 
-  private int nextValue() {
-    return (value += INCREMENT);
+  @Benchmark
+  public String string_valueOf() {
+    return String.valueOf(value);
   }
 }
