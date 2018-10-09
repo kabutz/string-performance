@@ -1,4 +1,1 @@
 rootProject.name = 'string-performance'
-
-include ':jdk-8'
-include ':jdk-11'
