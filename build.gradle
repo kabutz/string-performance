@@ -1,7 +1,7 @@
 plugins {
     id "java"
     id "com.github.ben-manes.versions" version "0.20.0"
-    id "com.github.johnrengelman.shadow" version "2.0.4"
+    id "com.github.johnrengelman.shadow" version "1.2.4"
 }
 
 def javaVersion = JavaVersion.current()
@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     compile "org.openjdk.jol:jol-core:0.9"
-    compile "org.openjdk.jmh:jmh-core:1.21"
-    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
+    compile "org.openjdk.jmh:jmh-core:1.16"
+    compileOnly "org.openjdk.jmh:jmh-generator-annprocess:1.16"
 }
 
 shadowJar {
