@@ -8,12 +8,12 @@ Lazy: Java 7 JVM, Java 7 Class	2334	2421	2335	2369	2334	2335	2339
 Studious: Java 7 JVM, Java 7 Class	2940	2970	2968	2956	2951	2940	2954
 Lazy: Java 7 JVM, Java 7 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2336	2360	2343	2344	2336	2339	2353
 Studious: Java 7 JVM, Java 7 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2946	2967	2973	2966	2963	2999	2946
-
+							
 Lazy: Java 8 JVM, Java 8 Class	2205	2206	2211	2205	2205	2209	2205
 Studious: Java 8 JVM, Java 8 Class	3055	3055	3060	3068	3061	3059	3072
 Lazy: Java 8 JVM, Java 8 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	2209	2217	2217	2209	2210	2226	2212
 Studious: Java 8 JVM, Java 8 Class, -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC	3068	3082	3084	3079	3070	3114	3068
-
+							
 Lazy: Java 11 JVM, Java 11 Class	1995	2027	2037	2000	1995	2030	2036
 Studious: Java 11 JVM, Java 11 Class	2047	2075	2061	2062	2086	2059	2047
 Lazy: Java 11 JVM, Java 6 Class	2743	2753	2758	2753	2759	2749	2743
