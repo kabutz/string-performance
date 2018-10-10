@@ -1,0 +1,119 @@
+openjdk version "1.6.0-113"
+OpenJDK Runtime Environment (Zulu 6.21.0.3-linux64) (build 1.6.0-113-b113)
+OpenJDK 64-Bit Server VM (Zulu 6.21.0.3-linux64) (build 23.77-b113, mixed mode)
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" -i10 -r 1 -w 1 -prof gc IntToString
+
+Benchmark                                                (value)  Mode  Cnt    Score   Error   Units
+IntToStringBenchmark.concat                           1640531527  avgt   30   26.940 ± 0.336   ns/op
+IntToStringBenchmark.integer_toString                 1640531527  avgt   30   36.214 ± 0.398   ns/op
+IntToStringBenchmark.string_valueOf                   1640531527  avgt   30   36.774 ± 0.632   ns/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" -i10 -r 1 -w 1 -prof gc StringAppenderBenchmark
+
+Benchmark                                              (columns)  (table)         (time)  Mode  Cnt    Score   Error   Units
+StringAppenderBenchmark.concat                   id, insert_time  history  1539203113091  avgt   30  150.907 ± 0.709   ns/op
+StringAppenderBenchmark.sb                       id, insert_time  history  1539203113091  avgt   30  151.780 ± 0.883   ns/op
+StringAppenderBenchmark.sb_sized                 id, insert_time  history  1539203113091  avgt   30   93.743 ± 1.876   ns/op
+
+
+----------------------------------------------------------------
+openjdk version "1.7.0_191"
+OpenJDK Runtime Environment (Zulu 7.24.0.1-linux64) (build 1.7.0_191-b08)
+OpenJDK 64-Bit Server VM (Zulu 7.24.0.1-linux64) (build 24.191-b08, mixed mode)
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.7.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" -i10 -r 1 -w 1 -prof gc IntToString
+
+Benchmark                                                                  (value)  Mode  Cnt     Score    Error   Units
+IntToStringBenchmark.concat                                             1640531527  avgt   30    30.636 ±  0.550   ns/op
+IntToStringBenchmark.concat:·gc.alloc.rate.norm                         1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.integer_toString                                   1640531527  avgt   30    35.605 ±  0.626   ns/op
+IntToStringBenchmark.integer_toString:·gc.alloc.rate.norm               1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.string_valueOf                                     1640531527  avgt   30    34.822 ±  0.140   ns/op
+IntToStringBenchmark.string_valueOf:·gc.alloc.rate.norm                 1640531527  avgt   30    64.000 ±  0.001    B/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.7.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" -i10 -r 1 -w 1 -prof gc StringAppenderBenchmark
+
+Benchmark                                                                (columns)  (table)         (time)  Mode  Cnt     Score     Error   Units
+StringAppenderBenchmark.concat                                     id, insert_time  history  1539203113091  avgt   30   148.487 ±   0.805   ns/op
+StringAppenderBenchmark.concat:·gc.alloc.rate.norm                 id, insert_time  history  1539203113091  avgt   30   816.000 ±   0.001    B/op
+StringAppenderBenchmark.sb                                         id, insert_time  history  1539203113091  avgt   30   155.193 ±   4.213   ns/op
+StringAppenderBenchmark.sb:·gc.alloc.rate.norm                     id, insert_time  history  1539203113091  avgt   30   816.000 ±   0.001    B/op
+StringAppenderBenchmark.sb_sized                                   id, insert_time  history  1539203113091  avgt   30    96.240 ±   1.289   ns/op
+StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm               id, insert_time  history  1539203113091  avgt   30   392.000 ±   0.001    B/op
+ 
+
+----------------------------------------------------------------
+java version "1.8.0_172"
+Java(TM) SE Runtime Environment (build 1.8.0_172-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.172-b11, mixed mode)
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.8.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -i10 -r 1 -w 1 -prof gc IntToString 
+
+Benchmark                                                                  (value)  Mode  Cnt     Score    Error   Units
+IntToStringBenchmark.concat                                             1640531527  avgt   30    31.785 ±  0.617   ns/op
+IntToStringBenchmark.concat:·gc.alloc.rate.norm                         1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.integer_toString                                   1640531527  avgt   30    35.102 ±  0.494   ns/op
+IntToStringBenchmark.integer_toString:·gc.alloc.rate.norm               1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.string_valueOf                                     1640531527  avgt   30    34.801 ±  0.339   ns/op
+IntToStringBenchmark.string_valueOf:·gc.alloc.rate.norm                 1640531527  avgt   30    64.000 ±  0.001    B/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-1.8.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -i10 -r 1 -w 1 -prof gc StringAppenderBenchmark
+
+Benchmark                                                                (columns)  (table)         (time)  Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.concat                                     id, insert_time  history  1539203113091  avgt   30   150.867 ±  0.885   ns/op
+StringAppenderBenchmark.concat:·gc.alloc.rate.norm                 id, insert_time  history  1539203113091  avgt   30   816.000 ±  0.001    B/op
+StringAppenderBenchmark.sb                                         id, insert_time  history  1539203113091  avgt   30   151.591 ±  1.788   ns/op
+StringAppenderBenchmark.sb:·gc.alloc.rate.norm                     id, insert_time  history  1539203113091  avgt   30   816.000 ±  0.001    B/op
+StringAppenderBenchmark.sb_sized                                   id, insert_time  history  1539203113091  avgt   30    98.355 ±  0.805   ns/op
+StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm               id, insert_time  history  1539203113091  avgt   30   392.000 ±  0.001    B/op
+
+
+----------------------------------------------------------------
+openjdk version "11" 2018-09-25
+OpenJDK Runtime Environment AdoptOpenJDK (build 11+28)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11+28, mixed mode)
+
+java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -i10 -r 1 -w 1 -prof gc IntToString
+
+Benchmark                                                                  (value)  Mode  Cnt     Score    Error   Units
+IntToStringBenchmark.concat                                             1640531527  avgt   30    19.385 ±  0.121   ns/op
+IntToStringBenchmark.concat:·gc.alloc.rate.norm                         1640531527  avgt   30    56.000 ±  0.001    B/op
+IntToStringBenchmark.integer_toString                                   1640531527  avgt   30    20.282 ±  0.121   ns/op
+IntToStringBenchmark.integer_toString:·gc.alloc.rate.norm               1640531527  avgt   30    56.000 ±  0.001    B/op
+IntToStringBenchmark.string_valueOf                                     1640531527  avgt   30    20.247 ±  0.141   ns/op
+IntToStringBenchmark.string_valueOf:·gc.alloc.rate.norm                 1640531527  avgt   30    56.000 ±  0.001    B/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings" -i10 -r 1 -w 1 -prof gc IntToString
+
+Benchmark                                                                  (value)  Mode  Cnt     Score    Error   Units
+IntToStringBenchmark.concat                                             1640531527  avgt   30    15.564 ±  0.055   ns/op  <!-- This is interesting we are allocating 8 bytes more but get better performance --!>
+IntToStringBenchmark.concat:·gc.alloc.rate.norm                         1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.integer_toString                                   1640531527  avgt   30    16.879 ±  0.074   ns/op
+IntToStringBenchmark.integer_toString:·gc.alloc.rate.norm               1640531527  avgt   30    64.000 ±  0.001    B/op
+IntToStringBenchmark.string_valueOf                                     1640531527  avgt   30    16.932 ±  0.108   ns/op
+IntToStringBenchmark.string_valueOf:·gc.alloc.rate.norm                 1640531527  avgt   30    64.000 ±  0.001    B/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -i10 -r 1 -w 1 -prof gc StringAppenderBenchmark
+
+Benchmark                                                                (columns)  (table)         (time)  Mode  Cnt     Score     Error   Units
+StringAppenderBenchmark.concat                                     id, insert_time  history  1539203113091  avgt   30    51.670 ±   1.145   ns/op
+StringAppenderBenchmark.concat:·gc.alloc.rate.norm                 id, insert_time  history  1539203113091  avgt   30   120.000 ±   0.001    B/op
+StringAppenderBenchmark.sb                                         id, insert_time  history  1539203113091  avgt   30   149.666 ±   8.277   ns/op
+StringAppenderBenchmark.sb:·gc.alloc.rate.norm                     id, insert_time  history  1539203113091  avgt   30   480.000 ±   0.001    B/op
+StringAppenderBenchmark.sb_sized                                   id, insert_time  history  1539203113091  avgt   30   114.149 ±   3.991   ns/op
+StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm               id, insert_time  history  1539203113091  avgt   30   240.000 ±   0.001    B/op
+
+java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings" -i10 -r 1 -w 1 -prof gc StringAppenderBenchmark
+
+Benchmark                                                                (columns)  (table)         (time)  Mode  Cnt     Score     Error   Units
+StringAppenderBenchmark.concat                                     id, insert_time  history  1539203113091  avgt   30    57.037 ±   0.874   ns/op
+StringAppenderBenchmark.concat:·gc.alloc.rate.norm                 id, insert_time  history  1539203113091  avgt   30   192.000 ±   0.001    B/op
+StringAppenderBenchmark.sb                                         id, insert_time  history  1539203113091  avgt   30   151.886 ±   5.575   ns/op
+StringAppenderBenchmark.sb:·gc.alloc.rate.norm                     id, insert_time  history  1539203113091  avgt   30   816.000 ±   0.001    B/op
+StringAppenderBenchmark.sb_sized                                   id, insert_time  history  1539203113091  avgt   30   112.700 ±   5.834   ns/op
+StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm               id, insert_time  history  1539203113091  avgt   30   392.000 ±   0.001    B/op
+
+NB: `SELECT id, insert_time FROM history WHERE last_update_time > 1539203113091` is 74 characters long, i.e.:
+    -XX:+CompactStrings => 120 bytes: 24 (String) +  96 (byte[74])
+    -XX:-CompactStrings => 192 bytes: 24 (String) + 168 (byte[148])
