@@ -11,27 +11,27 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class StringAppenderBenchmark {
-  @Param("*")
+  @Param("id, insert_time")
   private String columns;
-  @Param("persons")
+  @Param("history")
   private String table;
-  @Param("21")
-  private int age;
+  @Param("1539203113091")
+  private long time;
 
   @Benchmark
   public String concat() {
-    return "SELECT " + columns + " FROM " + table + " WHERE age > " + age;
+    return "SELECT " + columns + " FROM " + table + " WHERE last_update_time > " + time;
   }
 
   @Benchmark
   public String sb() {
     return new StringBuilder()
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE age > ").append(age).toString();
+        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
   }
 
   @Benchmark
   public String sb_sized() {
-    return new StringBuilder(25 + columns.length() + table.length() + 10)
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE age > ").append(age).toString();
+    return new StringBuilder(39 + columns.length() + table.length() + 19)
+        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
   }
 }
