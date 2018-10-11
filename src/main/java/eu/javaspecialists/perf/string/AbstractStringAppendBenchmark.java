@@ -1,12 +1,12 @@
 package eu.javaspecialists.perf.string;
 
-import eu.javaspecialists.perf.util.ByteWatcherSingleThread;
+import eu.javaspecialists.perf.util.*;
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.*;
 
 import java.lang.management.*;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.stream.*;
 
 /**
  * Testing the various algorithms currently employed in the StringConcatFactory.
@@ -23,7 +23,8 @@ public abstract class AbstractStringAppendBenchmark {
   private static final int NUMBER_OF_DIFFERENT_VALUES = 1024;
   private static final int MASK = NUMBER_OF_DIFFERENT_VALUES - 1;
   private final static ThreadMXBean tmb = ManagementFactory.getThreadMXBean();
-  private String[] values;
+  private String[] stringValues;
+  private long[] longValues;
   private int nextNumber;
   private ByteWatcherSingleThread byteWatcher;
 
@@ -35,13 +36,18 @@ public abstract class AbstractStringAppendBenchmark {
    * Deliberately not thread safe to avoid a bottleneck on synchronization
    */
   protected String nextString() {
-    return values[(nextNumber++) & MASK];
+    return stringValues[(nextNumber++) & MASK];
+  }
+  protected long nextLong() {
+    return longValues[(nextNumber++) & MASK];
   }
   @Setup
   public void setup() {
-    values = ThreadLocalRandom.current().ints(NUMBER_OF_DIFFERENT_VALUES, 0, 100_000_000)
+    longValues = ThreadLocalRandom.current().longs(NUMBER_OF_DIFFERENT_VALUES, Long.MAX_VALUE/2, Long.MAX_VALUE)
         .parallel()
-        .mapToObj(Integer::toString)
+        .toArray();
+    stringValues = LongStream.of(longValues)
+        .mapToObj(Long::toString)
         .toArray(String[]::new);
     byteWatcher = new ByteWatcherSingleThread();
     byteWatcher.reset();
@@ -56,10 +62,10 @@ public abstract class AbstractStringAppendBenchmark {
 
 
   @Benchmark
-  public void stringAdditionWithPlus(Blackhole bh) {
+  public String stringAdditionWithPlus() {
     String s1 = nextString();
     String s2 = nextString();
     String s3 = nextString();
-    bh.consume("SELECT " + s1 + " FROM " + s2 + " WHERE " + s3);
+    return "SELECT " + s1 + " FROM " + s2 + " WHERE last_update_time > " + s3;
   }
 }

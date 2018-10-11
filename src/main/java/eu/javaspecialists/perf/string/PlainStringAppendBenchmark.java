@@ -14,40 +14,40 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark{
   public void withoutAnyStringAppending(Blackhole bh) {
     bh.consume(nextString());
     bh.consume(nextString());
-    bh.consume(nextString());
+    bh.consume(nextLong());
   }
 
   @Benchmark
-  public void stringBuilder(Blackhole bh) {
+  public String stringBuilder() {
     String s1 = nextString();
     String s2 = nextString();
-    String s3 = nextString();
-    bh.consume(new StringBuilder().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE ").append(s3).toString());
+    long l3 = nextLong();
+    return new StringBuilder().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
   }
 
   @Benchmark
-  public void stringBuilderSized(Blackhole bh) {
+  public String stringBuilderSized() {
     String s1 = nextString();
     String s2 = nextString();
-    String s3 = nextString();
-    bh.consume(new StringBuilder(20 + s1.length() + s2.length() + s3.length())
-        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE ").append(s3).toString());
+    long l3 = nextLong();
+    return new StringBuilder(20 + s1.length() + s2.length() + 19)
+        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
   }
 
   @Benchmark
-  public void stringBuffer(Blackhole bh) {
+  public String stringBuffer() {
     String s1 = nextString();
     String s2 = nextString();
-    String s3 = nextString();
-    bh.consume(new StringBuffer().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE ").append(s3).toString());
+    long l3 = nextLong();
+    return new StringBuffer().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
   }
 
   @Benchmark
-  public void stringBufferSized(Blackhole bh) {
+  public String stringBufferSized() {
     String s1 = nextString();
     String s2 = nextString();
-    String s3 = nextString();
-    bh.consume(new StringBuffer(20 + s1.length() + s2.length() + s3.length())
-        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE ").append(s3).toString());
+    long l3 = nextLong();
+    return new StringBuffer(20 + s1.length() + s2.length() + 19)
+        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
   }
 }
