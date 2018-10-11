@@ -22,7 +22,7 @@ Total: 192
 public class BytesCountAppending {
   public static void main(String... args) {
     ByteWatcherSingleThread bw = new ByteWatcherSingleThread();
-    for (int i = 0; i < 1_000_000; i++) {
+    for (int i = 0; i < 1000000; i++) {
       concat("id, insert_time", "history", "1539203113091");
       sb("id, insert_time", "history", "1539203113091");
       sb_sized("id, insert_time", "history", "1539203113091");
