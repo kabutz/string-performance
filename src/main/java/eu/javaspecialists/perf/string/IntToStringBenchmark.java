@@ -23,9 +23,4 @@ public class IntToStringBenchmark {
   public String integer_toString() {
     return Integer.toString(value);
   }
-
-  @Benchmark
-  public String string_valueOf() {
-    return String.valueOf(value);
-  }
 }
