@@ -15,9 +15,6 @@ import java.util.stream.*;
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public abstract class AbstractStringAppendBenchmark {
   private static final int NUMBER_OF_DIFFERENT_VALUES = 1024;
@@ -38,12 +35,14 @@ public abstract class AbstractStringAppendBenchmark {
   protected String nextString() {
     return stringValues[(nextNumber++) & MASK];
   }
+
   protected long nextLong() {
     return longValues[(nextNumber++) & MASK];
   }
+
   @Setup
   public void setup() {
-    longValues = ThreadLocalRandom.current().longs(NUMBER_OF_DIFFERENT_VALUES, Long.MAX_VALUE/2, Long.MAX_VALUE)
+    longValues = ThreadLocalRandom.current().longs(NUMBER_OF_DIFFERENT_VALUES, Long.MAX_VALUE / 2, Long.MAX_VALUE)
         .parallel()
         .toArray();
     stringValues = LongStream.of(longValues)
@@ -65,7 +64,7 @@ public abstract class AbstractStringAppendBenchmark {
   public String stringAdditionWithPlus() {
     String s1 = nextString();
     String s2 = nextString();
-    String s3 = nextString();
+    long s3 = nextLong();
     return "SELECT " + s1 + " FROM " + s2 + " WHERE last_update_time > " + s3;
   }
 }
