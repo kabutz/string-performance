@@ -21,72 +21,110 @@ Total: 192
  */
 public class BytesCountAppending {
   public static void main(String... args) {
+    String question = "What is Faster?";
+    String answer1 = "Using + to add Strings";
+    String answer2 = "Using StringAppender";
     ByteWatcherSingleThread bw = new ByteWatcherSingleThread();
     for (int i = 0; i < 1000000; i++) {
-      concat("id, insert_time", "history", "1539203113091");
-      sb("id, insert_time", "history", "1539203113091");
-      sb_sized("id, insert_time", "history", "1539203113091");
-      concat("id, insert_time", "history", 1539203113091L);
-      sb("id, insert_time", "history", 1539203113091L);
-      sb_sized("id, insert_time", "history", 1539203113091L);
+      concat(question, answer1, answer2);
+      sb(question, answer1, answer2);
+      sb_sized(question, answer1, answer2);
+      format(question, answer1, answer2);
+
+      concat(question, answer1, (Object) answer2);
+      sb(question, answer1, (Object) answer2);
+      sb_sized(question, answer1, (Object) answer2);
+      format(question, answer1, (Object)answer2);
     }
 
     bw.reset();
-    concat("id, insert_time", "history", "1539203113091");
+    concat(question, answer1, answer2);
     long concat_bytes_strings = bw.calculateAllocations();
 
     bw.reset();
-    sb("id, insert_time", "history", "1539203113091");
+    sb(question, answer1, answer2);
     long sb_bytes_strings = bw.calculateAllocations();
 
     bw.reset();
-    sb_sized("id, insert_time", "history", "1539203113091");
+    sb_sized(question, answer1, answer2);
     long sb_sized_bytes_strings = bw.calculateAllocations();
 
     bw.reset();
-    concat("id, insert_time", "history", 1539203113091L);
+    format(question, answer1, answer2);
+    long format_strings = bw.calculateAllocations();
+
+    bw.reset();
+    concat(question, answer1, (Object) answer2);
     long concat_bytes_mixed = bw.calculateAllocations();
 
     bw.reset();
-    sb("id, insert_time", "history", 1539203113091L);
+    sb(question, answer1, (Object) answer2);
     long sb_bytes_mixed = bw.calculateAllocations();
 
     bw.reset();
-    sb_sized("id, insert_time", "history", 1539203113091L);
+    sb_sized(question, answer1, (Object) answer2);
     long sb_sized_bytes_mixed = bw.calculateAllocations();
+
+    bw.reset();
+    format(question, answer1, (Object)answer2);
+    long format_mixed = bw.calculateAllocations();
 
     System.out.println("concat_bytes_strings = " + concat_bytes_strings);
     System.out.println("sb_bytes_strings = " + sb_bytes_strings);
     System.out.println("sb_sized_bytes_strings = " + sb_sized_bytes_strings);
+    System.out.println("format_strings = " + format_strings);
     System.out.println("concat_bytes_mixed = " + concat_bytes_mixed);
     System.out.println("sb_bytes_mixed = " + sb_bytes_mixed);
     System.out.println("sb_sized_bytes_mixed = " + sb_sized_bytes_mixed);
+    System.out.println("format_mixed = " + format_mixed);
   }
 
-  public static String concat(String columns, String table, String time) {
-    return "SELECT " + columns + " FROM " + table + " WHERE last_update_time > " + time;
+  public static String concat(String question, String answer1, String answer2) {
+    return "<h1>" + question + "</h1><ol><li>" + answer1 +
+        "</li><li>" + answer2 + "</li></ol>";
   }
 
-  public static String sb(String columns, String table, String time) {
-    return new StringBuilder()
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
+  public static String sb(String question, String answer1, String answer2) {
+    return new StringBuilder().append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
   }
 
-  public static String sb_sized(String columns, String table, String time) {
-    return new StringBuilder(39 + columns.length() + table.length() + 19)
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
-  }
-  public static String concat(String columns, String table, long time) {
-    return "SELECT " + columns + " FROM " + table + " WHERE last_update_time > " + time;
-  }
-
-  public static String sb(String columns, String table, long time) {
-    return new StringBuilder()
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
+  public static String sb_sized(String question, String answer1, String answer2) {
+    int len = 36 + question.length() + answer1.length() + answer2.length();
+    return new StringBuilder(len).append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
   }
 
-  public static String sb_sized(String columns, String table, long time) {
-    return new StringBuilder(39 + columns.length() + table.length() + 19)
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
+  public static String format(String question, String answer1, String answer2) {
+    return String.format("<h1>%s</h1><ol><li>%s</li><li>%s</li></ol>", question, answer1, answer2);
+  }
+
+
+  public static String concat(String question, String answer1, Object answer2) {
+    return "<h1>" + question + "</h1><ol><li>" + answer1 +
+        "</li><li>" + answer2 + "</li></ol>";
+  }
+
+  public static String sb(String question, String answer1, Object answer2) {
+    return new StringBuilder().append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
+  }
+
+  public static String sb_sized(String question, String answer1, Object answer2) {
+    int len = 36 + question.length() + answer1.length() + answer2.toString().length();
+    return new StringBuilder(len).append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
+  }
+
+  public static String format(String question, String answer1, Object answer2) {
+    return String.format("<h1>%s</h1><ol><li>%s</li><li>%s</li></ol>", question, answer1, answer2);
   }
 }
