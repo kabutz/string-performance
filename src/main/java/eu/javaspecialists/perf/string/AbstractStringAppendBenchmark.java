@@ -62,9 +62,15 @@ public abstract class AbstractStringAppendBenchmark {
 
   @Benchmark
   public String stringAdditionWithPlus() {
-    String s1 = nextString();
-    String s2 = nextString();
-    long s3 = nextLong();
-    return "SELECT " + s1 + " FROM " + s2 + " WHERE last_update_time > " + s3;
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return "<h1>" + title + "</h1>" +
+        "<ul>" +
+        "<li><b>" + id1 + "</b> " + optiontxt1 + "</li>" +
+        "<li><b>" + id2 + "</b> " + optiontxt2 + "</li>" +
+        "</ul>";
   }
 }

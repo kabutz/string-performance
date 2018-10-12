@@ -13,35 +13,69 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
 
   @Benchmark
   public String stringBuilder() {
-    String s1 = nextString();
-    String s2 = nextString();
-    long l3 = nextLong();
-    return new StringBuilder().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return new StringBuilder().append("<h1>").append(title).append("</h1>")
+        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
+        .append(optiontxt1).append("</li>")
+        .append("<li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li>").append("</ul>").toString();
   }
 
   @Benchmark
   public String stringBuilderSized() {
-    String s1 = nextString();
-    String s2 = nextString();
-    long l3 = nextLong();
-    return new StringBuilder(20 + s1.length() + s2.length() + 19)
-        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return new StringBuilder(52 + title.length() + 19 + optiontxt1.length() + 19 + optiontxt2.length())
+        .append("<h1>").append(title).append("</h1>")
+        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
+        .append(optiontxt1).append("</li>")
+        .append("<li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li>").append("</ul>").toString();
   }
 
   @Benchmark
   public String stringBuffer() {
-    String s1 = nextString();
-    String s2 = nextString();
-    long l3 = nextLong();
-    return new StringBuffer().append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return new StringBuffer().append("<h1>").append(title).append("</h1>")
+        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
+        .append(optiontxt1).append("</li>")
+        .append("<li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li>").append("</ul>").toString();
   }
 
   @Benchmark
   public String stringBufferSized() {
-    String s1 = nextString();
-    String s2 = nextString();
-    long l3 = nextLong();
-    return new StringBuffer(20 + s1.length() + s2.length() + 19)
-        .append("SELECT ").append(s1).append(" FROM ").append(s2).append(" WHERE last_update_time > ").append(l3).toString();
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return new StringBuffer(52 + title.length() + 19 + optiontxt1.length() + 19 + optiontxt2.length())
+        .append("<h1>").append(title).append("</h1>")
+        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
+        .append(optiontxt1).append("</li>")
+        .append("<li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li>").append("</ul>").toString();
+  }
+
+  @Benchmark
+  public String stringFormat() {
+    String title = nextString();
+    long id1 = nextLong();
+    String optiontxt1 = nextString();
+    long id2 = nextLong();
+    String optiontxt2 = nextString();
+    return String.format("<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>", title, id1, optiontxt1, id2, optiontxt2);
   }
 }
