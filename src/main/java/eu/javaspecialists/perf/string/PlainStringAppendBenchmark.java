@@ -1,15 +1,9 @@
 package eu.javaspecialists.perf.string;
 
-import eu.javaspecialists.perf.util.*;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.infra.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.infra.Blackhole;
 
-import java.lang.management.*;
-import java.util.*;
-import java.util.concurrent.*;
-
-@Fork(3)
-public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark{
+public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
   @Benchmark
   public void withoutAnyStringAppending(Blackhole bh) {
     bh.consume(nextString());

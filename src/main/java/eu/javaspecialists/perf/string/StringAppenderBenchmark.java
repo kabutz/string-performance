@@ -6,9 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class StringAppenderBenchmark {
   @Param("id, insert_time")

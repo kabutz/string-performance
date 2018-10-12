@@ -7,9 +7,6 @@ import java.util.concurrent.*;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class HashCodeBenchmark {
   @Param({"100", "1000", "10000"})
@@ -63,7 +60,7 @@ public class HashCodeBenchmark {
     int len = count;
 
     for (int i = 0; i < len; i++)
-      h = 31*h + val[off++];
+      h = 31 * h + val[off++];
 
     return h;
   }

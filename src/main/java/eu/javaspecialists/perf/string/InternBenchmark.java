@@ -7,9 +7,6 @@ import java.util.concurrent.*;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 20)
 @State(Scope.Benchmark)
 public class InternBenchmark {
   @Param({"100", "100000", "10000000"})
