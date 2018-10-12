@@ -14,16 +14,11 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class StringAppenderBenchmark {
-  @Param("String benchmarks")
-  private String title;
-  @Param("2734923874")
-  private long id1;
-  @Param("100100")
-  private long id2;
-  @Param("plus vs concat")
-  private String optiontxt1;
-  @Param("StringBuilder")
-  private String optiontxt2;
+  private String title = "String benchmarks";
+  private long id1 = 2734923874L;
+  private long id2 = 100100;
+  private String optiontxt1 = "plus vs concat";
+  private String optiontxt2 = "StringBuilder";
   private MessageFormat messageFormat;
 
   @Setup
@@ -66,7 +61,7 @@ public class StringAppenderBenchmark {
 
   @Benchmark
   public String sb_sized() {
-    return new StringBuilder(52 + 2 * 20 + optiontxt1.length() + optiontxt2.length())
+    return new StringBuilder(52 + title.length() + 10 + optiontxt1.length() + 6 + optiontxt2.length())
         .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
         .append("</li><li><b>").append(id2).append("</b> ").append(optiontxt2).append("</li></ul>").toString();
   }
