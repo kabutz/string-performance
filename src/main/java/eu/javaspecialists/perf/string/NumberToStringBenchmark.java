@@ -11,10 +11,8 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class NumberToStringBenchmark {
-  @Param("1640531527")
-  private int intVal;
-  @Param("-8454749669228202880")
-  private long longVal;
+  private int intVal = 1640531527;
+  private long longVal = -8454749669228202880L;
 
   @Benchmark
   public String int_concat() {
