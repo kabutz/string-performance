@@ -153,3 +153,56 @@ StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm                     avgt  
 NB: `<h1>String benchmarks</h1><ul><li><b>2734923874</b> plus vs concat</li><li><b>100100</b> StringBuilder</li></ul>` is 112 characters long, i.e.:
     -XX:+CompactStrings => 152 bytes: 24 (String) + 128 (byte[112])
     -XX:-CompactStrings => 264 bytes: 24 (String) + 240 (byte[224])
+
+
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -Djava.lang.invoke.stringConcat=BC_SB
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   300.654 ±  1.036   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   512.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -Djava.lang.invoke.stringConcat=BC_SB_SIZED
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   255.015 ±  0.485   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   328.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -Djava.lang.invoke.stringConcat=BC_SB_SIZED_EXACT
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   157.151 ±  3.092   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   208.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -Djava.lang.invoke.stringConcat=MH_SB_SIZED
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   250.578 ±  1.906   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   328.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -Djava.lang.invoke.stringConcat=MH_SB_SIZED_EXACT
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   289.505 ±  0.697   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   408.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings -Djava.lang.invoke.stringConcat=BC_SB
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   322.589 ±  1.130   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   888.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings -Djava.lang.invoke.stringConcat=BC_SB_SIZED
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   245.532 ±  0.611   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   576.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings -Djava.lang.invoke.stringConcat=BC_SB_SIZED_EXACT
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   142.367 ±  0.813   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   384.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings -Djava.lang.invoke.stringConcat=MH_SB_SIZED
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   252.529 ±  0.929   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   576.000 ±  0.001    B/op
+
+# VM options: -Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings -Djava.lang.invoke.stringConcat=MH_SB_SIZED_EXACT
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30   288.222 ±  0.426   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   648.000 ±  0.001    B/op
+
