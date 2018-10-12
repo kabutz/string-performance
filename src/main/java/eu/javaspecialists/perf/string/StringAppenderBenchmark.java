@@ -48,7 +48,7 @@ public class StringAppenderBenchmark {
 
   @Benchmark
   public String sb_sized() {
-    return new StringBuilder(52 + 2 * 20 + optiontxt1.length() + optiontxt2.length())
+    return new StringBuilder(52 + title.length() + 6 + optiontxt1.length() + 10 + optiontxt2.length())
         .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
         .append("</li><li><b>").append(id2).append("</b> ").append(optiontxt2).append("</li></ul>").toString();
   }
