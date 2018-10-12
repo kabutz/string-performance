@@ -2,6 +2,9 @@ package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
 
+import java.text.MessageFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 @Fork(3)
@@ -21,6 +24,16 @@ public class StringAppenderBenchmark {
   private String optiontxt1;
   @Param("StringBuilder")
   private String optiontxt2;
+  private MessageFormat messageFormat;
+
+  @Setup
+  public void setup() {
+    messageFormat = new MessageFormat("<h1>{0}</h1><ul><li><b>{1}</b> {2}</li><li><b>{3}</b> {4}</li></ul>", Locale.US);
+    NumberFormat integerInstance = NumberFormat.getIntegerInstance(Locale.US);
+    integerInstance.setGroupingUsed(false);
+    messageFormat.setFormat(1, integerInstance);
+    messageFormat.setFormat(3, integerInstance);
+  }
 
   @Benchmark
   public String plus() {
@@ -37,6 +50,11 @@ public class StringAppenderBenchmark {
   @Benchmark
   public String format() {
     return String.format("<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>", title, id1, optiontxt1, id2, optiontxt2);
+  }
+
+  @Benchmark
+  public String message_format() {
+    return messageFormat.format(new Object[]{title, id1, optiontxt1, id2, optiontxt2});
   }
 
   @Benchmark
