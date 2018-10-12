@@ -1,10 +1,7 @@
 package eu.javaspecialists.perf.string;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Measurement;
-import org.openjdk.jmh.annotations.Warmup;
-import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.infra.*;
 
 @Fork(3)
 @Warmup(iterations = 5, time = 5)
@@ -24,11 +21,11 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
     String optiontxt1 = nextString();
     long id2 = nextLong();
     String optiontxt2 = nextString();
-    return new StringBuilder().append("<h1>").append(title).append("</h1>")
-        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
-        .append(optiontxt1).append("</li>")
-        .append("<li><b>").append(id2).append("</b> ")
-        .append(optiontxt2).append("</li>").append("</ul>").toString();
+    return new StringBuilder().append("<h1>").append(title).append("</h1><ul><li><b>")
+        .append(id1).append("</b> ")
+        .append(optiontxt1).append("</li><li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li></ul>").toString();
+
   }
 
   @Benchmark
@@ -39,11 +36,10 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
     long id2 = nextLong();
     String optiontxt2 = nextString();
     return new StringBuilder(52 + title.length() + 19 + optiontxt1.length() + 19 + optiontxt2.length())
-        .append("<h1>").append(title).append("</h1>")
-        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
-        .append(optiontxt1).append("</li>")
-        .append("<li><b>").append(id2).append("</b> ")
-        .append(optiontxt2).append("</li>").append("</ul>").toString();
+        .append("<h1>").append(title).append("</h1><ul><li><b>")
+        .append(id1).append("</b> ")
+        .append(optiontxt1).append("</li><li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li></ul>").toString();
   }
 
   @Benchmark
@@ -53,11 +49,10 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
     String optiontxt1 = nextString();
     long id2 = nextLong();
     String optiontxt2 = nextString();
-    return new StringBuffer().append("<h1>").append(title).append("</h1>")
-        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
-        .append(optiontxt1).append("</li>")
-        .append("<li><b>").append(id2).append("</b> ")
-        .append(optiontxt2).append("</li>").append("</ul>").toString();
+    return new StringBuffer().append("<h1>").append(title).append("</h1><ul><li><b>")
+        .append(id1).append("</b> ")
+        .append(optiontxt1).append("</li><li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li></ul>").toString();
   }
 
   @Benchmark
@@ -68,11 +63,10 @@ public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
     long id2 = nextLong();
     String optiontxt2 = nextString();
     return new StringBuffer(52 + title.length() + 19 + optiontxt1.length() + 19 + optiontxt2.length())
-        .append("<h1>").append(title).append("</h1>")
-        .append("<ul>").append("<li><b>").append(id1).append("</b> ")
-        .append(optiontxt1).append("</li>")
-        .append("<li><b>").append(id2).append("</b> ")
-        .append(optiontxt2).append("</li>").append("</ul>").toString();
+        .append("<h1>").append(title).append("</h1><ul><li><b>")
+        .append(id1).append("</b> ")
+        .append(optiontxt1).append("</li><li><b>").append(id2).append("</b> ")
+        .append(optiontxt2).append("</li></ul>").toString();
   }
 
   @Benchmark
