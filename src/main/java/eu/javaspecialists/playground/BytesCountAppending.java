@@ -5,19 +5,30 @@ import eu.javaspecialists.perf.util.*;
 /*
 Java 64-bit Compressed Oops Compact Strings on:
 SELECT id, insert_time FROM history WHERE last_update_time > 1539203113091
-byte[]: 74 characters
-12 + 4 + 74 = 90 ≈ 96
+byte[]: 93 characters
+12 + 4 + 93 = 109 ≈ 112
 String:
 12 + 4 + 1 + 4 = 21 ≈ 24
-Total: 120
+Total: 136
 
 Compact Strings off:
 SELECT id, insert_time FROM history WHERE last_update_time > 1539203113091
 byte[]: 74 characters
-12 + 4 +  = 164 ≈ 168
+12 + 4 + 93*2 = 202 ≈ 208
 String:
 12 + 4 + 1 + 4 = 21 ≈ 24
-Total: 192
+Total: 232
+
+
+Standard results
+concat_bytes_strings = 136
+sb_bytes_strings = 136
+sb_sized_bytes_strings = 136
+format_strings = 1384
+concat_bytes_mixed = 136
+sb_bytes_mixed = 496
+sb_sized_bytes_mixed = 272
+format_mixed = 1384
  */
 public class BytesCountAppending {
   public static void main(String... args) {
