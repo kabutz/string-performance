@@ -8,27 +8,40 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class StringAppenderBenchmark {
-  @Param("id, insert_time")
-  private String columns;
-  @Param("history")
-  private String table;
-  @Param("1539203113091")
-  private long time;
+  @Param("String benchmarks")
+  private String title;
+  @Param("2734923874")
+  private long id1;
+  @Param("100100")
+  private long id2;
+  @Param("plus vs concat")
+  private String optiontxt1;
+  @Param("StringBuilder")
+  private String optiontxt2;
+
+  @Benchmark
+  public String plus() {
+    //        4                      16                   5                          12                5                       10
+    return "<h1>" + title + "</h1><ul><li><b>" + id1 + "</b> " + optiontxt1 + "</li><li><b>" + id2 + "</b> " + optiontxt2 + "</li></ul>";
+  }
 
   @Benchmark
   public String concat() {
-    return "SELECT " + columns + " FROM " + table + " WHERE last_update_time > " + time;
+    return "<h1>".concat(title).concat("</h1><ul><li><b>").concat(Long.toString(id1)).concat("</b> ").concat(optiontxt1)
+        .concat("</li><li><b>").concat(Long.toString(id2)).concat("</b> ").concat(optiontxt2).concat("</li></ul>");
   }
 
   @Benchmark
   public String sb() {
     return new StringBuilder()
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
+        .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
+        .append("</li><li><b>").append(id2).append("</b> ").append(optiontxt2).append("</li></ul>").toString();
   }
 
   @Benchmark
   public String sb_sized() {
-    return new StringBuilder(39 + columns.length() + table.length() + 19)
-        .append("SELECT ").append(columns).append(" FROM ").append(table).append(" WHERE last_update_time > ").append(time).toString();
+    return new StringBuilder(52 + 2 * 20 + optiontxt1.length() + optiontxt2.length())
+        .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
+        .append("</li><li><b>").append(id2).append("</b> ").append(optiontxt2).append("</li></ul>").toString();
   }
 }
