@@ -1,8 +1,14 @@
 package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
+@Fork(3)
+@Warmup(iterations = 5, time = 5)
+@Measurement(iterations = 10, time = 2)
 public class PlainStringAppendBenchmark extends AbstractStringAppendBenchmark {
   @Benchmark
   public void withoutAnyStringAppending(Blackhole bh) {
