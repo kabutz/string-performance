@@ -35,6 +35,11 @@ public class StringAppenderBenchmark {
   }
 
   @Benchmark
+  public String format() {
+    return String.format("<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>", title, id1, optiontxt1, id2, optiontxt2);
+  }
+
+  @Benchmark
   public String sb() {
     return new StringBuilder()
         .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
