@@ -4,7 +4,7 @@ import eu.javaspecialists.perf.util.*;
 
 /*
 Java 64-bit Compressed Oops Compact Strings on:
-SELECT id, insert_time FROM history WHERE last_update_time > 1539203113091
+<h1>What is Faster?</h1><ol><li>Using + to add Strings</li><li>Using StringAppender</li></ol>
 byte[]: 93 characters
 12 + 4 + 93 = 109 ≈ 112
 String:
@@ -12,7 +12,7 @@ String:
 Total: 136
 
 Compact Strings off:
-SELECT id, insert_time FROM history WHERE last_update_time > 1539203113091
+<h1>What is Faster?</h1><ol><li>Using + to add Strings</li><li>Using StringAppender</li></ol>
 byte[]: 74 characters
 12 + 4 + 93*2 = 202 ≈ 208
 String:
