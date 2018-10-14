@@ -175,4 +175,8 @@ NB: `<h1>String benchmarks</h1><ul><li><b>2734923874</b> plus vs concat</li><li>
     -XX:-CompactStrings => 264 bytes: 24 (String) + 240 (byte[224])
 
 
+java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" StringIntrinsicsBenchmark
 
+Benchmark                                                                       (s1)                                         (s2)  Mode  Cnt   Score   Error  Units
+StringIntrinsicsBenchmark.hand_rolled    The quick brown fox jumps over the lazy dog  The quick brown fox jumps over the lazy dog  avgt   30  33.222 ± 1.291  ns/op
+StringIntrinsicsBenchmark.string_equals  The quick brown fox jumps over the lazy dog  The quick brown fox jumps over the lazy dog  avgt   30  11.312 ± 0.133  ns/op
