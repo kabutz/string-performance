@@ -1,4 +1,4 @@
-package eu.javaspecialists.perf.string;
+package eu.javaspecialists.playground;
 
 public class BreakCompiler {
   public static void main(String[] args) {
