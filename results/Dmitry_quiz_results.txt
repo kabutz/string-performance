@@ -10,16 +10,18 @@ NumberToStringBenchmark.int_toString   1640531527  -8454749669228202880  avgt   
 NumberToStringBenchmark.long_plus    1640531527  -8454749669228202880  avgt   30  121.876 ± 0.396  ns/op
 NumberToStringBenchmark.long_toString  1640531527  -8454749669228202880  avgt   30   84.763 ± 0.142  ns/op
 
-java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" StringAppenderBenchmark
+java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:+OptimizeStringConcat" StringAppenderBenchmark
 
-Benchmark                               Mode  Cnt     Score   Error  Units
-StringAppenderBenchmark.concat          avgt   30   644.089 ± 1.064  ns/op
-StringAppenderBenchmark.format          avgt   30  4088.345 ± 7.193  ns/op
-StringAppenderBenchmark.message_format  avgt   30   980.156 ± 4.328  ns/op
-StringAppenderBenchmark.plus            avgt   30   319.047 ± 1.714  ns/op
-StringAppenderBenchmark.sb              avgt   30   319.790 ± 2.834  ns/op
-StringAppenderBenchmark.sb_sized        avgt   30   219.523 ± 0.924  ns/op
-
+Benchmark                                        Mode  Cnt     Score   Error  Units
+StringAppenderBenchmark.appendBasic              avgt   30    60.867 ± 0.184  ns/op
+StringAppenderBenchmark.appendStringBuilder      avgt   30    60.947 ± 0.072  ns/op
+StringAppenderBenchmark.appendStringBuilderSize  avgt   30    56.700 ± 0.177  ns/op
+StringAppenderBenchmark.concat                   avgt   30   647.803 ± 1.138  ns/op
+StringAppenderBenchmark.format                   avgt   30  4193.139 ± 6.109  ns/op
+StringAppenderBenchmark.message_format           avgt   30   958.472 ± 2.359  ns/op
+StringAppenderBenchmark.plus                     avgt   30   317.396 ± 0.628  ns/op
+StringAppenderBenchmark.sb                       avgt   30   315.740 ± 2.448  ns/op
+StringAppenderBenchmark.sb_sized                 avgt   30   220.068 ± 0.596  ns/op
 
 ----------------------------------------------------------------
 openjdk version "1.7.0_191"
@@ -54,6 +56,13 @@ StringAppenderBenchmark.sb:·gc.alloc.rate.norm                           avgt  
 StringAppenderBenchmark.sb_sized                                         avgt   30   229.811 ±   2.628   ns/op
 StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm                     avgt   30   528.000 ±   0.001    B/op
 
+Benchmark                                                                         Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.appendBasic                                               avgt   30    56.001 ±  0.086   ns/op
+StringAppenderBenchmark.appendBasic:·gc.alloc.rate.norm                           avgt   30   200.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilder                                       avgt   30    55.996 ±  0.077   ns/op
+StringAppenderBenchmark.appendStringBuilder:·gc.alloc.rate.norm                   avgt   30   200.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilderSize                                   avgt   30    56.493 ±  0.106   ns/op
+StringAppenderBenchmark.appendStringBuilderSize:·gc.alloc.rate.norm               avgt   30   200.000 ±  0.001    B/op
 
 ----------------------------------------------------------------
 java version "1.8.0_172"
@@ -88,6 +97,13 @@ StringAppenderBenchmark.sb:·gc.alloc.rate.norm                           avgt  
 StringAppenderBenchmark.sb_sized                                         avgt   30   245.197 ±  0.671   ns/op
 StringAppenderBenchmark.sb_sized:·gc.alloc.rate.norm                     avgt   30   528.000 ±  0.001    B/op
 
+Benchmark                                                                         Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.appendBasic                                               avgt   30    58.278 ±  0.256   ns/op
+StringAppenderBenchmark.appendBasic:·gc.alloc.rate.norm                           avgt   30   200.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilder                                       avgt   30    58.142 ±  0.062   ns/op
+StringAppenderBenchmark.appendStringBuilder:·gc.alloc.rate.norm                   avgt   30   200.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilderSize                                   avgt   30    58.381 ±  0.088   ns/op
+StringAppenderBenchmark.appendStringBuilderSize:·gc.alloc.rate.norm               avgt   30   200.000 ±  0.001    B/op
 
 ----------------------------------------------------------------
 openjdk version "11" 2018-09-25
@@ -143,6 +159,15 @@ StringAppenderBenchmark.plus (MH_SB_SIZED)                               avgt   
 StringAppenderBenchmark.plus:·gc.alloc.rate.norm                         avgt   30   328.000 ±  0.001    B/op
 StringAppenderBenchmark.plus (MH_SB_SIZED_EXACT)                         avgt   30   289.505 ±  0.697   ns/op
 StringAppenderBenchmark.plus:·gc.alloc.rate.norm                         avgt   30   408.000 ±  0.001    B/op
+
+Benchmark                                                                         Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.appendBasic                                               avgt   30    75.274 ±  0.142   ns/op
+StringAppenderBenchmark.appendBasic:·gc.alloc.rate.norm                           avgt   30   120.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilder                                       avgt   30    74.567 ±  0.668   ns/op
+StringAppenderBenchmark.appendStringBuilder:·gc.alloc.rate.norm                   avgt   30   120.000 ±  0.001    B/op
+StringAppenderBenchmark.appendStringBuilderSize                                   avgt   30    75.157 ±  0.195   ns/op
+StringAppenderBenchmark.appendStringBuilderSize:·gc.alloc.rate.norm               avgt   30   120.000 ±  0.001    B/op
+
 
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings" -prof gc StringAppenderBenchmark
 
