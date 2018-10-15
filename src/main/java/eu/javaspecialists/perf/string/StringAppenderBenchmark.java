@@ -2,10 +2,9 @@ package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.text.MessageFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
 
 @Fork(3)
 @Warmup(iterations = 5, time = 5)
@@ -64,5 +63,31 @@ public class StringAppenderBenchmark {
     return new StringBuilder(52 + title.length() + 10 + optiontxt1.length() + 6 + optiontxt2.length())
         .append("<h1>").append(title).append("</h1><ul><li><b>").append(id1).append("</b> ").append(optiontxt1)
         .append("</li><li><b>").append(id2).append("</b> ").append(optiontxt2).append("</li></ul>").toString();
+  }
+
+  @Benchmark
+  public String appendBasic() {
+    String question = title, answer1 = optiontxt1, answer2 = optiontxt2;
+    return "<h1>" + question + "</h1><ol><li>" + answer1 +
+        "</li><li>" + answer2 + "</li></ol>";
+  }
+
+  @Benchmark
+  public String appendStringBuilder() {
+    String question = title, answer1 = optiontxt1, answer2 = optiontxt2;
+    return new StringBuilder().append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
+  }
+
+  @Benchmark
+  public String appendStringBuilderSize() {
+    String question = title, answer1 = optiontxt1, answer2 = optiontxt2;
+    int len = 36 + question.length() + answer1.length() + answer2.length();
+    return new StringBuilder(len).append("<h1>").append(question)
+        .append("</h1><ol><li>").append(answer1)
+        .append("</li><li>").append(answer2)
+        .append("</li></ol>").toString();
   }
 }
