@@ -5,9 +5,9 @@ OpenJDK 64-Bit Server VM (Zulu 6.21.0.3-linux64) (build 23.77-b113, mixed mode)
 java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" NumberToStringBenchmark
 
 Benchmark                                (intVal)             (longVal)  Mode  Cnt    Score   Error  Units
-NumberToStringBenchmark.int_concat     1640531527  -8454749669228202880  avgt   30   45.181 ± 0.128  ns/op
+NumberToStringBenchmark.int_plus     1640531527  -8454749669228202880  avgt   30   45.181 ± 0.128  ns/op
 NumberToStringBenchmark.int_toString   1640531527  -8454749669228202880  avgt   30   61.485 ± 0.202  ns/op
-NumberToStringBenchmark.long_concat    1640531527  -8454749669228202880  avgt   30  121.876 ± 0.396  ns/op
+NumberToStringBenchmark.long_plus    1640531527  -8454749669228202880  avgt   30  121.876 ± 0.396  ns/op
 NumberToStringBenchmark.long_toString  1640531527  -8454749669228202880  avgt   30   84.763 ± 0.142  ns/op
 
 java -jar build/libs/string-performance-benchmarks-jdk-1.6.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" StringAppenderBenchmark
@@ -29,12 +29,12 @@ OpenJDK 64-Bit Server VM (Zulu 7.24.0.1-linux64) (build 24.191-b08, mixed mode)
 java -jar build/libs/string-performance-benchmarks-jdk-1.7.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC" -prof gc NumberToStringBenchmark
 
 Benchmark                                                                 (intVal)             (longVal)  Mode  Cnt     Score    Error   Units
-NumberToStringBenchmark.int_concat                                      1640531527  -8454749669228202880  avgt   30    50.157 ±  0.143   ns/op
-NumberToStringBenchmark.int_concat:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
+NumberToStringBenchmark.int_plus                                      1640531527  -8454749669228202880  avgt   30    50.157 ±  0.143   ns/op
+NumberToStringBenchmark.int_plus:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
 NumberToStringBenchmark.int_toString                                    1640531527  -8454749669228202880  avgt   30    59.509 ±  0.126   ns/op
 NumberToStringBenchmark.int_toString:·gc.alloc.rate.norm                1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
-NumberToStringBenchmark.long_concat                                     1640531527  -8454749669228202880  avgt   30   118.193 ±  0.298   ns/op
-NumberToStringBenchmark.long_concat:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30   240.000 ±  0.001    B/op
+NumberToStringBenchmark.long_plus                                     1640531527  -8454749669228202880  avgt   30   118.193 ±  0.298   ns/op
+NumberToStringBenchmark.long_plus:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30   240.000 ±  0.001    B/op
 NumberToStringBenchmark.long_toString                                   1640531527  -8454749669228202880  avgt   30    63.371 ±  0.138   ns/op
 NumberToStringBenchmark.long_toString:·gc.alloc.rate.norm               1640531527  -8454749669228202880  avgt   30    80.000 ±  0.001    B/op
 
@@ -63,12 +63,12 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.172-b11, mixed mode)
 java -jar build/libs/string-performance-benchmarks-jdk-1.8.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -prof gc NumberToStringBenchmark
 
 Benchmark                                                                 (intVal)             (longVal)  Mode  Cnt     Score    Error   Units
-NumberToStringBenchmark.int_concat                                      1640531527  -8454749669228202880  avgt   30    52.701 ±  0.080   ns/op
-NumberToStringBenchmark.int_concat:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
+NumberToStringBenchmark.int_plus                                      1640531527  -8454749669228202880  avgt   30    52.701 ±  0.080   ns/op
+NumberToStringBenchmark.int_plus:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
 NumberToStringBenchmark.int_toString                                    1640531527  -8454749669228202880  avgt   30    59.228 ±  0.168   ns/op
 NumberToStringBenchmark.int_toString:·gc.alloc.rate.norm                1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
-NumberToStringBenchmark.long_concat                                     1640531527  -8454749669228202880  avgt   30   127.092 ±  0.660   ns/op
-NumberToStringBenchmark.long_concat:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30   240.000 ±  0.001    B/op
+NumberToStringBenchmark.long_plus                                     1640531527  -8454749669228202880  avgt   30   127.092 ±  0.660   ns/op
+NumberToStringBenchmark.long_plus:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30   240.000 ±  0.001    B/op
 NumberToStringBenchmark.long_toString                                   1640531527  -8454749669228202880  avgt   30    64.960 ±  0.193   ns/op
 NumberToStringBenchmark.long_toString:·gc.alloc.rate.norm               1640531527  -8454749669228202880  avgt   30    80.000 ±  0.001    B/op
 
@@ -97,24 +97,24 @@ OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11+28, mixed mode)
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" -prof gc NumberToStringBenchmark
 
 Benchmark                                                                 (intVal)             (longVal)  Mode  Cnt     Score    Error   Units
-NumberToStringBenchmark.int_concat                                      1640531527  -8454749669228202880  avgt   30    32.858 ±  0.070   ns/op
-NumberToStringBenchmark.int_concat:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    56.000 ±  0.001    B/op
+NumberToStringBenchmark.int_plus                                      1640531527  -8454749669228202880  avgt   30    32.858 ±  0.070   ns/op
+NumberToStringBenchmark.int_plus:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    56.000 ±  0.001    B/op
 NumberToStringBenchmark.int_toString                                    1640531527  -8454749669228202880  avgt   30    34.422 ±  0.062   ns/op
 NumberToStringBenchmark.int_toString:·gc.alloc.rate.norm                1640531527  -8454749669228202880  avgt   30    56.000 ±  0.001    B/op
-NumberToStringBenchmark.long_concat                                     1640531527  -8454749669228202880  avgt   30    53.275 ±  0.088   ns/op
-NumberToStringBenchmark.long_concat:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
+NumberToStringBenchmark.long_plus                                     1640531527  -8454749669228202880  avgt   30    53.275 ±  0.088   ns/op
+NumberToStringBenchmark.long_plus:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
 NumberToStringBenchmark.long_toString                                   1640531527  -8454749669228202880  avgt   30    53.476 ±  0.156   ns/op
 NumberToStringBenchmark.long_toString:·gc.alloc.rate.norm               1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
 
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation -XX:-CompactStrings" -prof gc NumberToStringBenchmark
 
 Benchmark                                                                 (intVal)             (longVal)  Mode  Cnt     Score    Error   Units
-NumberToStringBenchmark.int_concat                                      1640531527  -8454749669228202880  avgt   30    26.102 ±  0.056   ns/op
-NumberToStringBenchmark.int_concat:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
+NumberToStringBenchmark.int_plus                                      1640531527  -8454749669228202880  avgt   30    26.102 ±  0.056   ns/op
+NumberToStringBenchmark.int_plus:·gc.alloc.rate.norm                  1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
 NumberToStringBenchmark.int_toString                                    1640531527  -8454749669228202880  avgt   30    28.501 ±  0.084   ns/op
 NumberToStringBenchmark.int_toString:·gc.alloc.rate.norm                1640531527  -8454749669228202880  avgt   30    64.000 ±  0.001    B/op
-NumberToStringBenchmark.long_concat                                     1640531527  -8454749669228202880  avgt   30    55.825 ±  0.068   ns/op
-NumberToStringBenchmark.long_concat:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30    80.000 ±  0.001    B/op
+NumberToStringBenchmark.long_plus                                     1640531527  -8454749669228202880  avgt   30    55.825 ±  0.068   ns/op
+NumberToStringBenchmark.long_plus:·gc.alloc.rate.norm                 1640531527  -8454749669228202880  avgt   30    80.000 ±  0.001    B/op
 NumberToStringBenchmark.long_toString                                   1640531527  -8454749669228202880  avgt   30    57.576 ±  0.250   ns/op
 NumberToStringBenchmark.long_toString:·gc.alloc.rate.norm               1640531527  -8454749669228202880  avgt   30    80.000 ±  0.001    B/op
 

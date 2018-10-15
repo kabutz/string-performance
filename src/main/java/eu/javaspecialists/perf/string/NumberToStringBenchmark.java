@@ -15,7 +15,7 @@ public class NumberToStringBenchmark {
   private long longVal = -8454749669228202880L;
 
   @Benchmark
-  public String int_concat() {
+  public String int_plus() {
     return "" + intVal;
   }
 
@@ -25,7 +25,7 @@ public class NumberToStringBenchmark {
   }
 
   @Benchmark
-  public String long_concat() {
+  public String long_plus() {
     return "" + longVal;
   }
 
