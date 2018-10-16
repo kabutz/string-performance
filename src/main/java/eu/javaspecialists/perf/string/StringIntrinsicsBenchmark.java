@@ -2,8 +2,9 @@ package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.lang.reflect.*;
-import java.util.concurrent.*;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @Fork(3)
 @Warmup(iterations = 5, time = 5)
@@ -17,15 +18,15 @@ public class StringIntrinsicsBenchmark {
 
   private String s1;
   private String s2;
-  private byte[] s1Bytes;
-  private byte[] s2Bytes;
+  private Latin1String l1;
+  private Latin1String l2;
 
   @Setup
   public void setup() throws NoSuchFieldException, IllegalAccessException, InterruptedException {
     s1 = createString(length);
     s2 = createString(length);
-    s1Bytes = asLatin1ByteArray(s1);
-    s2Bytes = asLatin1ByteArray(s2);
+    l1 = new Latin1String(s1);
+    l2 = new Latin1String(s2);
 
     Field valueField = String.class.getDeclaredField("value");
     valueField.setAccessible(true);
@@ -53,14 +54,6 @@ public class StringIntrinsicsBenchmark {
     return sb.toString();
   }
 
-  private byte[] asLatin1ByteArray(String value) {
-    byte[] result = new byte[value.length()];
-    for (int i = 0; i < result.length; i++) {
-      result[i] = (byte) value.charAt(i);
-    }
-    return result;
-  }
-
   @Benchmark
   public boolean string_equals() {
     return s1.equals(s2);
@@ -68,20 +61,49 @@ public class StringIntrinsicsBenchmark {
 
   @Benchmark
   public boolean hand_rolled() {
-    return equals(s1Bytes, s2Bytes);
+    return l1.equals(l2);
   }
 
-  // Copied from java.lang.StringLatin1.equals(byte[], byte[])
-  public static boolean equals(byte[] value, byte[] other) {
-    if (value.length == other.length) {
-      for (int i = 0; i < value.length; i++) {
-        if (value[i] != other[i]) {
-          return false;
-        }
+  public static final class Latin1String {
+    private final byte[] value;
+
+    public Latin1String(String string) {
+      byte[] bytes = new byte[string.length()];
+      for (int i = 0; i < bytes.length; i++) {
+        bytes[i] = (byte) string.charAt(i);
       }
-      return true;
+      value = bytes;
     }
-    return false;
+
+    @Override
+    public boolean equals(Object anObject) {
+      if (this == anObject) {
+        return true;
+      }
+      if (anObject instanceof Latin1String) {
+        Latin1String aString = (Latin1String) anObject;
+        return equals(value, aString.value);
+      }
+      return false;
+    }
+
+    // Copied from java.lang.StringLatin1.equals(byte[], byte[])
+    private static boolean equals(byte[] value, byte[] other) {
+      if (value.length == other.length) {
+        for (int i = 0; i < value.length; i++) {
+          if (value[i] != other[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
+    }
+
+    @Override
+    public int hashCode() {
+      return Arrays.hashCode(value);
+    }
   }
 
 }
