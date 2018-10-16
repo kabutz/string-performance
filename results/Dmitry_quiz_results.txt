@@ -202,6 +202,10 @@ NB: `<h1>String benchmarks</h1><ul><li><b>2734923874</b> plus vs concat</li><li>
 
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" StringIntrinsicsBenchmark
 
-Benchmark                                                                       (s1)                                         (s2)  Mode  Cnt   Score   Error  Units
-StringIntrinsicsBenchmark.hand_rolled    The quick brown fox jumps over the lazy dog  The quick brown fox jumps over the lazy dog  avgt   30  33.222 ± 1.291  ns/op
-StringIntrinsicsBenchmark.string_equals  The quick brown fox jumps over the lazy dog  The quick brown fox jumps over the lazy dog  avgt   30  11.312 ± 0.133  ns/op
+Benchmark                                (length)  Mode  Cnt      Score     Error  Units
+StringIntrinsicsBenchmark.hand_rolled          10  avgt   30     16.144 ±   0.862  ns/op
+StringIntrinsicsBenchmark.hand_rolled        1000  avgt   30    527.124 ±   0.313  ns/op
+StringIntrinsicsBenchmark.hand_rolled      100000  avgt   30  53944.810 ±  43.840  ns/op
+StringIntrinsicsBenchmark.string_equals        10  avgt   30     10.557 ±   0.012  ns/op
+StringIntrinsicsBenchmark.string_equals      1000  avgt   30     47.284 ±   1.338  ns/op
+StringIntrinsicsBenchmark.string_equals    100000  avgt   30   5099.405 ± 525.408  ns/op
