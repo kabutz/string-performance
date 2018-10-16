@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 @Fork(3)
-@Warmup(iterations = 5, time = 5)
-@Measurement(iterations = 10, time = 2)
+@Warmup(iterations = 10, time = 5)
+@Measurement(iterations = 30, time = 1)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
@@ -18,15 +18,19 @@ public class StringIntrinsicsBenchmark {
 
   private String s1;
   private String s2;
+  private String s3;
   private Latin1String l1;
   private Latin1String l2;
+  private Latin1String l3;
 
   @Setup
   public void setup() throws NoSuchFieldException, IllegalAccessException, InterruptedException {
     s1 = createString(length);
     s2 = createString(length);
+    s3 = "Wrong length!";
     l1 = new Latin1String(s1);
     l2 = new Latin1String(s2);
+    l3 = new Latin1String(s3);
 
     Field valueField = String.class.getDeclaredField("value");
     valueField.setAccessible(true);
@@ -55,13 +59,23 @@ public class StringIntrinsicsBenchmark {
   }
 
   @Benchmark
-  public boolean string_equals() {
+  public boolean string_equal() {
     return s1.equals(s2);
   }
 
   @Benchmark
-  public boolean hand_rolled() {
+  public boolean string_non_equal() {
+    return s1.equals(s3);
+  }
+
+  @Benchmark
+  public boolean hand_rolled_equal() {
     return l1.equals(l2);
+  }
+
+  @Benchmark
+  public boolean hand_rolled_non_equal() {
+    return l1.equals(l3);
   }
 
   public static final class Latin1String {
