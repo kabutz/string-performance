@@ -202,10 +202,17 @@ NB: `<h1>String benchmarks</h1><ul><li><b>2734923874</b> plus vs concat</li><li>
 
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" StringIntrinsicsBenchmark
 
-Benchmark                                (length)  Mode  Cnt      Score     Error  Units
-StringIntrinsicsBenchmark.hand_rolled          10  avgt   30     16.144 ±   0.862  ns/op
-StringIntrinsicsBenchmark.hand_rolled        1000  avgt   30    527.124 ±   0.313  ns/op
-StringIntrinsicsBenchmark.hand_rolled      100000  avgt   30  53944.810 ±  43.840  ns/op
-StringIntrinsicsBenchmark.string_equals        10  avgt   30     10.557 ±   0.012  ns/op
-StringIntrinsicsBenchmark.string_equals      1000  avgt   30     47.284 ±   1.338  ns/op
-StringIntrinsicsBenchmark.string_equals    100000  avgt   30   5099.405 ± 525.408  ns/op
+Benchmark                                        (length)  Mode  Cnt      Score     Error  Units
+StringIntrinsicsBenchmark.hand_rolled_equal            10  avgt   90     15.228 ±   0.021  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal          1000  avgt   90    527.028 ±   0.289  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal        100000  avgt   90  53968.191 ±  32.741  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal        10  avgt   90      5.478 ±   0.001  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal      1000  avgt   90      5.497 ±   0.005  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal    100000  avgt   90      5.748 ±   0.159  ns/op
+StringIntrinsicsBenchmark.string_equal                 10  avgt   90     10.762 ±   0.130  ns/op
+StringIntrinsicsBenchmark.string_equal               1000  avgt   90     46.060 ±   0.369  ns/op
+StringIntrinsicsBenchmark.string_equal             100000  avgt   90   4926.907 ± 316.437  ns/op
+StringIntrinsicsBenchmark.string_non_equal             10  avgt   90      6.858 ±   0.006  ns/op
+StringIntrinsicsBenchmark.string_non_equal           1000  avgt   90      6.850 ±   0.005  ns/op
+StringIntrinsicsBenchmark.string_non_equal         100000  avgt   90      6.860 ±   0.001  ns/op
+
