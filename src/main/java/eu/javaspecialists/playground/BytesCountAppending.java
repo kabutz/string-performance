@@ -32,9 +32,9 @@ format_mixed = 1384
  */
 public class BytesCountAppending {
   public static void main(String... args) {
-    String question = "What is Faster?";
-    String answer1 = "Using + to add Strings";
-    String answer2 = "Using StringAppender";
+    String question = "String benchmarks";
+    String answer1 = "plus vs concat";
+    String answer2 = "StringBuilder";
     ByteWatcherSingleThread bw = new ByteWatcherSingleThread();
     for (int i = 0; i < 1000000; i++) {
       concat(question, answer1, answer2);
