@@ -2,18 +2,18 @@ package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
+import java.lang.reflect.*;
+import java.util.*;
+import java.util.concurrent.*;
 
 @Fork(3)
-@Warmup(iterations = 10, time = 5)
+@Warmup(iterations = 30, time = 1)
 @Measurement(iterations = 30, time = 1)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class StringIntrinsicsBenchmark {
-  @Param({"10", "1000", "100000"})
+  @Param({"4", "16", "64", "256"})
   private int length;
 
   private String s1;
@@ -22,6 +22,8 @@ public class StringIntrinsicsBenchmark {
   private Latin1String l1;
   private Latin1String l2;
   private Latin1String l3;
+
+  private final static boolean TEST_DEDUPLICATION = false;
 
   @Setup
   public void setup() throws NoSuchFieldException, IllegalAccessException, InterruptedException {
@@ -32,20 +34,22 @@ public class StringIntrinsicsBenchmark {
     l2 = new Latin1String(s2);
     l3 = new Latin1String(s3);
 
-    Field valueField = String.class.getDeclaredField("value");
-    valueField.setAccessible(true);
-    boolean deduplicated = false;
-    System.out.print("Check for deduplication ..");
-    for (int i = 0; i < 10 && !deduplicated; i++) {
-      System.out.print('.');
-      System.gc();
-      Thread.sleep(100);
-      deduplicated = (valueField.get(s1) == valueField.get(s2));
-    }
-    if (deduplicated) {
-      System.out.println(" deduplicated!");
-    } else {
-      System.out.println(" not deduplicated.");
+    if (TEST_DEDUPLICATION) {
+      Field valueField = String.class.getDeclaredField("value");
+      valueField.setAccessible(true);
+      boolean deduplicated = false;
+      System.out.print("Check for deduplication ..");
+      for (int i = 0; i < 10 && !deduplicated; i++) {
+        System.out.print('.');
+        System.gc();
+        Thread.sleep(100);
+        deduplicated = (valueField.get(s1) == valueField.get(s2));
+      }
+      if (deduplicated) {
+        System.out.println(" deduplicated!");
+      } else {
+        System.out.println(" not deduplicated.");
+      }
     }
   }
 
@@ -55,7 +59,10 @@ public class StringIntrinsicsBenchmark {
       sb.append("The quick brown fox jumps over the lazy dog.  ");
     }
     sb.setLength(length);
-    return sb.toString();
+    String s = sb.toString();
+    if (s.length() != length) throw new AssertionError(
+        "Incorrect length.  Expected " + length + ", actual length=" + s.length() + " s=\"" + s + "\"");
+    return s;
   }
 
   @Benchmark
