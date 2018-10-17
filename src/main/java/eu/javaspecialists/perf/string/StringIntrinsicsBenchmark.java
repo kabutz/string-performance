@@ -13,7 +13,7 @@ import java.util.concurrent.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class StringIntrinsicsBenchmark {
-  @Param({"4", "16", "64", "256"})
+  @Param({"4", "16", "64", "256", "1000", "1024"})
   private int length;
 
   private String s1;
