@@ -202,17 +202,29 @@ NB: `<h1>String benchmarks</h1><ul><li><b>2734923874</b> plus vs concat</li><li>
 
 java -jar build/libs/string-performance-benchmarks-jdk-11.jar -jvmArgs "-Xmx8G -XX:+UseParallelGC -XX:-TieredCompilation" StringIntrinsicsBenchmark
 
-Benchmark                                        (length)  Mode  Cnt      Score     Error  Units
-StringIntrinsicsBenchmark.hand_rolled_equal            10  avgt   90     15.228 ±   0.021  ns/op
-StringIntrinsicsBenchmark.hand_rolled_equal          1000  avgt   90    527.028 ±   0.289  ns/op
-StringIntrinsicsBenchmark.hand_rolled_equal        100000  avgt   90  53968.191 ±  32.741  ns/op
-StringIntrinsicsBenchmark.hand_rolled_non_equal        10  avgt   90      5.478 ±   0.001  ns/op
-StringIntrinsicsBenchmark.hand_rolled_non_equal      1000  avgt   90      5.497 ±   0.005  ns/op
-StringIntrinsicsBenchmark.hand_rolled_non_equal    100000  avgt   90      5.748 ±   0.159  ns/op
-StringIntrinsicsBenchmark.string_equal                 10  avgt   90     10.762 ±   0.130  ns/op
-StringIntrinsicsBenchmark.string_equal               1000  avgt   90     46.060 ±   0.369  ns/op
-StringIntrinsicsBenchmark.string_equal             100000  avgt   90   4926.907 ± 316.437  ns/op
-StringIntrinsicsBenchmark.string_non_equal             10  avgt   90      6.858 ±   0.006  ns/op
-StringIntrinsicsBenchmark.string_non_equal           1000  avgt   90      6.850 ±   0.005  ns/op
-StringIntrinsicsBenchmark.string_non_equal         100000  avgt   90      6.860 ±   0.001  ns/op
+Benchmark                                        (length)  Mode  Cnt    Score   Error  Units
+StringIntrinsicsBenchmark.hand_rolled_equal             4  avgt   90    9.544 ± 0.023  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal            16  avgt   90   18.268 ± 0.012  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal            64  avgt   90   43.697 ± 0.020  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal           256  avgt   90  140.006 ± 0.044  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal          1000  avgt   90  526.622 ± 0.271  ns/op
+StringIntrinsicsBenchmark.hand_rolled_equal          1024  avgt   90  536.974 ± 0.065  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal         4  avgt   90    5.484 ± 0.003  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal        16  avgt   90    5.478 ± 0.002  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal        64  avgt   90    5.482 ± 0.020  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal       256  avgt   90    5.476 ± 0.002  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal      1000  avgt   90    7.006 ± 0.777  ns/op
+StringIntrinsicsBenchmark.hand_rolled_non_equal      1024  avgt   90    5.480 ± 0.004  ns/op
+StringIntrinsicsBenchmark.string_equal                  4  avgt   90    9.560 ± 0.004  ns/op
+StringIntrinsicsBenchmark.string_equal                 16  avgt   90   11.553 ± 0.011  ns/op
+StringIntrinsicsBenchmark.string_equal                 64  avgt   90   10.922 ± 0.028  ns/op
+StringIntrinsicsBenchmark.string_equal                256  avgt   90   19.733 ± 0.153  ns/op
+StringIntrinsicsBenchmark.string_equal               1000  avgt   90   45.715 ± 0.090  ns/op
+StringIntrinsicsBenchmark.string_equal               1024  avgt   90   46.137 ± 0.148  ns/op
+StringIntrinsicsBenchmark.string_non_equal              4  avgt   90    6.865 ± 0.010  ns/op
+StringIntrinsicsBenchmark.string_non_equal             16  avgt   90    6.859 ± 0.009  ns/op
+StringIntrinsicsBenchmark.string_non_equal             64  avgt   90    6.854 ± 0.007  ns/op
+StringIntrinsicsBenchmark.string_non_equal            256  avgt   90    6.859 ± 0.011  ns/op
+StringIntrinsicsBenchmark.string_non_equal           1000  avgt   90    6.856 ± 0.006  ns/op
+StringIntrinsicsBenchmark.string_non_equal           1024  avgt   90    6.855 ± 0.006  ns/op
 
