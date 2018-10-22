@@ -2,9 +2,9 @@ package eu.javaspecialists.perf.string;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.lang.reflect.*;
-import java.util.*;
-import java.util.concurrent.*;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @Fork(3)
 @Warmup(iterations = 30, time = 1)
@@ -13,7 +13,9 @@ import java.util.concurrent.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class StringIntrinsicsBenchmark {
-  @Param({"4", "16", "64", "256", "1000", "1024"})
+  private final static boolean TEST_DEDUPLICATION = false;
+
+  @Param({"4", "16", "64", "256", "1024"})
   private int length;
 
   private String s1;
@@ -22,8 +24,9 @@ public class StringIntrinsicsBenchmark {
   private Latin1String l1;
   private Latin1String l2;
   private Latin1String l3;
-
-  private final static boolean TEST_DEDUPLICATION = false;
+  private byte[] b1;
+  private byte[] b2;
+  private byte[] b3;
 
   @Setup
   public void setup() throws NoSuchFieldException, IllegalAccessException, InterruptedException {
@@ -33,6 +36,9 @@ public class StringIntrinsicsBenchmark {
     l1 = new Latin1String(s1);
     l2 = new Latin1String(s2);
     l3 = new Latin1String(s3);
+    b1 = l1.value;
+    b2 = l2.value;
+    b3 = l3.value;
 
     if (TEST_DEDUPLICATION) {
       Field valueField = String.class.getDeclaredField("value");
@@ -83,6 +89,16 @@ public class StringIntrinsicsBenchmark {
   @Benchmark
   public boolean hand_rolled_non_equal() {
     return l1.equals(l3);
+  }
+
+  @Benchmark
+  public int mismatch_equal() {
+    return Arrays.mismatch(b1, b2);
+  }
+
+  @Benchmark
+  public int mismatch_non_equal() {
+    return Arrays.mismatch(b1, b3);
   }
 
   public static final class Latin1String {
