@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class StringIntrinsicsBenchmark {
   private final static boolean TEST_DEDUPLICATION = false;
 
-  @Param({"4", "16", "64", "256", "1024"})
+  @Param({"4", "16", "64", "256", "1024", "65536"})
   private int length;
 
   private String s1;
@@ -24,6 +24,9 @@ public class StringIntrinsicsBenchmark {
   private Latin1String l1;
   private Latin1String l2;
   private Latin1String l3;
+  private Latin1StringMismatch m1;
+  private Latin1StringMismatch m2;
+  private Latin1StringMismatch m3;
   private byte[] b1;
   private byte[] b2;
   private byte[] b3;
@@ -36,6 +39,9 @@ public class StringIntrinsicsBenchmark {
     l1 = new Latin1String(s1);
     l2 = new Latin1String(s2);
     l3 = new Latin1String(s3);
+    m1 = new Latin1StringMismatch(s1);
+    m2 = new Latin1StringMismatch(s2);
+    m3 = new Latin1StringMismatch(s3);
     b1 = l1.value;
     b2 = l2.value;
     b3 = l3.value;
@@ -92,13 +98,13 @@ public class StringIntrinsicsBenchmark {
   }
 
   @Benchmark
-  public int mismatch_equal() {
-    return Arrays.mismatch(b1, b2);
+  public boolean mismatch_equal() {
+    return m1.equals(m2);
   }
 
   @Benchmark
-  public int mismatch_non_equal() {
-    return Arrays.mismatch(b1, b3);
+  public boolean mismatch_non_equal() {
+    return m1.equals(m3);
   }
 
   public static final class Latin1String {
@@ -133,6 +139,42 @@ public class StringIntrinsicsBenchmark {
           }
         }
         return true;
+      }
+      return false;
+    }
+
+    @Override
+    public int hashCode() {
+      return Arrays.hashCode(value);
+    }
+  }
+  public static final class Latin1StringMismatch {
+    private final byte[] value;
+
+    public Latin1StringMismatch(String string) {
+      byte[] bytes = new byte[string.length()];
+      for (int i = 0; i < bytes.length; i++) {
+        bytes[i] = (byte) string.charAt(i);
+      }
+      value = bytes;
+    }
+
+    @Override
+    public boolean equals(Object anObject) {
+      if (this == anObject) {
+        return true;
+      }
+      if (anObject instanceof Latin1StringMismatch) {
+        Latin1StringMismatch aString = (Latin1StringMismatch) anObject;
+        return equals(value, aString.value);
+      }
+      return false;
+    }
+
+    // Probably how it is implemented in the intrinsic
+    private static boolean equals(byte[] value, byte[] other) {
+      if (value.length == other.length) {
+        return Arrays.mismatch(value, other) == -1;
       }
       return false;
     }
