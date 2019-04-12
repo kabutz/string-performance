@@ -19,7 +19,7 @@ dependencies {
 }
 
 shadowJar {
-    classifier = 'benchmarks-jdk-' + javaVersion
+    archiveClassifier = 'benchmarks-jdk-' + javaVersion
     manifest {
         attributes 'Main-Class': 'org.openjdk.jmh.Main'
     }
