@@ -47,8 +47,13 @@ public class StringAppenderBenchmark {
   }
 
   @Benchmark
-  public String message_format() {
+  public String message_format_cached_instance() {
     return messageFormat.format(new Object[]{title, id1, optiontxt1, id2, optiontxt2});
+  }
+
+  @Benchmark
+  public String message_format() {
+    return MessageFormat.format("<h1>{0}</h1><ul><li><b>{1}</b> {2}</li><li><b>{3}</b> {4}</li></ul>", new Object[]{title, id1, optiontxt1, id2, optiontxt2});
   }
 
   @Benchmark
