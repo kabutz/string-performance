@@ -3,6 +3,7 @@ package eu.javaspecialists.perf.string;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.*;
 
+import java.util.*;
 import java.util.concurrent.*;
 
 @Fork(3)
@@ -23,13 +24,22 @@ public class InternBenchmark {
   }
 
   @Benchmark
-  public void creatingStrings(Blackhole bh) {
-    bh.consume(nextValue());
+  public String creatingStrings(Blackhole bh) {
+    return nextValue();
   }
 
   @Benchmark
-  public void interningString(Blackhole bh) {
-    bh.consume(nextValue().intern());
+  public String interningString() {
+    return nextValue().intern();
+  }
+
+  private final Map<String, String> cache = new ConcurrentHashMap<>();
+
+  @Benchmark
+  public String chmString() {
+    String next = nextValue();
+    String putResult = cache.putIfAbsent(next, next);
+    return putResult == null ? next : putResult;
   }
 
   private String nextValue() {
