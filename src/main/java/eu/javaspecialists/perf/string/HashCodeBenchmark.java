@@ -12,59 +12,59 @@ import java.util.concurrent.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class HashCodeBenchmark {
-  @Param({"100", "1000", "10000"})
-  private int length;
+    @Param({"100", "1000", "10000"})
+    private int length;
 
-  private char[] value;
+    private char[] value;
 
-  @Setup
-  public void setup() {
-    value = new char[length];
-    for (int i = 0; i < value.length; i++) {
-      value[i] = (char) ThreadLocalRandom.current().nextInt('A', 'z');
+    @Setup
+    public void setup() {
+        value = new char[length];
+        for (int i = 0; i < value.length; i++) {
+            value[i] = (char) ThreadLocalRandom.current().nextInt('A', 'z');
+        }
+        System.out.println(new String(value));
     }
-    System.out.println(new String(value));
-  }
 
-  @Benchmark
-  public void testHashCodeJava1(Blackhole bh) {
-    bh.consume(hashCodeJava1(value, 0, length));
-  }
-
-  public int hashCodeJava1(char[] value, int offset, int count) {
-    int h = 0;
-    int off = offset;
-    char val[] = value;
-    int len = count;
-
-    if (len < 16) {
-      for (int i = len; i > 0; i--) {
-        h = (h * 37) + val[off++];
-      }
-    } else {
-      // only sample some characters
-      int skip = len / 8;
-      for (int i = len; i > 0; i -= skip, off += skip) {
-        h = (h * 39) + val[off];
-      }
+    @Benchmark
+    public void testHashCodeJava1(Blackhole bh) {
+        bh.consume(hashCodeJava1(value, 0, length));
     }
-    return h;
-  }
 
-  @Benchmark
-  public void testHashCodeJava2(Blackhole bh) {
-    bh.consume(hashCodeJava2(value, 0, length));
-  }
+    public int hashCodeJava1(char[] value, int offset, int count) {
+        int h = 0;
+        int off = offset;
+        char val[] = value;
+        int len = count;
 
-  public int hashCodeJava2(char[] value, int offset, int count) {
-    int h = 0;
-    int off = offset;
-    char val[] = value;
-    int len = count;
+        if (len < 16) {
+            for (int i = len; i > 0; i--) {
+                h = (h * 37) + val[off++];
+            }
+        } else {
+            // only sample some characters
+            int skip = len / 8;
+            for (int i = len; i > 0; i -= skip, off += skip) {
+                h = (h * 39) + val[off];
+            }
+        }
+        return h;
+    }
 
-    for (int i = 0; i < len; i++)
-      h = 31 * h + val[off++];
+    @Benchmark
+    public void testHashCodeJava2(Blackhole bh) {
+        bh.consume(hashCodeJava2(value, 0, length));
+    }
 
-    return h;
-  }
+    public int hashCodeJava2(char[] value, int offset, int count) {
+        int h = 0;
+        int off = offset;
+        char val[] = value;
+        int len = count;
+
+        for (int i = 0; i < len; i++)
+            h = 31 * h + val[off++];
+
+        return h;
+    }
 }

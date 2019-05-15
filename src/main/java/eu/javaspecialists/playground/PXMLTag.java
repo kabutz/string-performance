@@ -26,78 +26,78 @@ List of Java 9 intrinsics: https://gist.github.com/apangin/8bc69f06879a86163e490
 
  */
 public class PXMLTag {
-  public String m_type;
-  public static Random m_random = new Random();
-  private static String[] m_primitiveTypes = {"java.lang.String",
-      "boolean",
-      "int",
-      "long",
-      "float",
-      "short"};
+    public String m_type;
+    public static Random m_random = new Random();
+    private static String[] m_primitiveTypes = {"java.lang.String",
+            "boolean",
+            "int",
+            "long",
+            "float",
+            "short"};
 
-  private static String[] m_allTypes = {"java.lang.String",
-      "boolean",
-      "int",
-      "long",
-      "float",
-      "java.util.Vector",
-      "java.util.Map",
-      "short"};
+    private static String[] m_allTypes = {"java.lang.String",
+            "boolean",
+            "int",
+            "long",
+            "float",
+            "java.util.Vector",
+            "java.util.Map",
+            "short"};
 
-  public PXMLTag() {
-    super();
-  }
-
-  public boolean isPrimitiveType() {
-    for (int i = 0; i < m_primitiveTypes.length; i++) {
-      String type = m_type;
-      String primitiveType = m_primitiveTypes[i];
-      if (type.compareTo(primitiveType) == 0) {
-        return true;
-      }
+    public PXMLTag() {
+        super();
     }
-    return false;
-  }
 
-  public static void main(String[] args) {
-    int threads = 1;
-    if (args.length == 1) {
-      threads = Integer.parseInt(args[0]);
-    }
-    for (int i = 0; i < threads; i++) {
-      Thread t = createThread();
-      t.start();
-    }
-  }
-
-  private static Thread createThread() {
-    return new Thread(new Runnable() {
-
-      @Override
-      public void run() {
-        while (true) {
-          PXMLTag tag = new PXMLTag();
-          tag.m_type = getRandomType();
-          if (tag.isPrimitiveType() && notReallyPrimitiveType(tag.m_type)) {
-            System.out.println(tag.m_type + " not really primitive!");
-            System.exit(0);
-          }
-          try {
-            Thread.sleep(m_random.nextInt(100));
-          } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-          }
+    public boolean isPrimitiveType() {
+        for (int i = 0; i < m_primitiveTypes.length; i++) {
+            String type = m_type;
+            String primitiveType = m_primitiveTypes[i];
+            if (type.compareTo(primitiveType) == 0) {
+                return true;
+            }
         }
-      }
+        return false;
+    }
 
-      private boolean notReallyPrimitiveType(String m_type) {
-        return m_type.contains("Vector") || m_type.contains("Map");
-      }
+    public static void main(String[] args) {
+        int threads = 1;
+        if (args.length == 1) {
+            threads = Integer.parseInt(args[0]);
+        }
+        for (int i = 0; i < threads; i++) {
+            Thread t = createThread();
+            t.start();
+        }
+    }
 
-      private String getRandomType() {
-        return m_allTypes[m_random.nextInt(m_allTypes.length)];
-      }
-    });
-  }
+    private static Thread createThread() {
+        return new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    PXMLTag tag = new PXMLTag();
+                    tag.m_type = getRandomType();
+                    if (tag.isPrimitiveType() && notReallyPrimitiveType(tag.m_type)) {
+                        System.out.println(tag.m_type + " not really primitive!");
+                        System.exit(0);
+                    }
+                    try {
+                        Thread.sleep(m_random.nextInt(100));
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            private boolean notReallyPrimitiveType(String m_type) {
+                return m_type.contains("Vector") || m_type.contains("Map");
+            }
+
+            private String getRandomType() {
+                return m_allTypes[m_random.nextInt(m_allTypes.length)];
+            }
+        });
+    }
 }

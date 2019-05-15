@@ -7,9 +7,9 @@ import java.util.concurrent.atomic.*;
 public class ByteWatcherSingleThread {
     private static final String ALLOCATED = " allocated ";
     private static final String GET_THREAD_ALLOCATED_BYTES =
-        "getThreadAllocatedBytes";
+            "getThreadAllocatedBytes";
     private static final String[] SIGNATURE =
-        new String[]{long.class.getName()};
+            new String[]{long.class.getName()};
     private static final MBeanServer mBeanServer;
     private static final ObjectName name;
 
@@ -25,7 +25,7 @@ public class ByteWatcherSingleThread {
     static {
         try {
             name = new ObjectName(
-                ManagementFactory.THREAD_MXBEAN_NAME);
+                    ManagementFactory.THREAD_MXBEAN_NAME);
             mBeanServer = ManagementFactory.getPlatformMBeanServer();
         } catch (MalformedObjectNameException e) {
             throw new ExceptionInInitializerError(e);
@@ -41,7 +41,7 @@ public class ByteWatcherSingleThread {
     }
 
     private ByteWatcherSingleThread(
-        Thread thread, boolean checkThreadSafety) {
+            Thread thread, boolean checkThreadSafety) {
         this.checkThreadSafety = checkThreadSafety;
         this.tid = thread.getId();
         this.thread = thread;
@@ -79,10 +79,10 @@ public class ByteWatcherSingleThread {
     long threadAllocatedBytes() {
         try {
             return (Long) mBeanServer.invoke(
-                name,
-                GET_THREAD_ALLOCATED_BYTES,
-                PARAMS,
-                SIGNATURE
+                    name,
+                    GET_THREAD_ALLOCATED_BYTES,
+                    PARAMS,
+                    SIGNATURE
             );
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
@@ -96,16 +96,16 @@ public class ByteWatcherSingleThread {
     public long calculateAllocations() {
         checkThreadSafety();
         long mark1 = ((threadAllocatedBytes() -
-            MEASURING_COST_IN_BYTES) - allocated.get());
+                MEASURING_COST_IN_BYTES) - allocated.get());
         return mark1;
     }
 
     private void checkThreadSafety() {
         if (checkThreadSafety &&
-            tid != Thread.currentThread().getId())
+                tid != Thread.currentThread().getId())
             throw new IllegalStateException(
-                "AllocationMeasure must not be " +
-                    "used over more than 1 thread.");
+                    "AllocationMeasure must not be " +
+                            "used over more than 1 thread.");
     }
 
     public Thread getThread() {

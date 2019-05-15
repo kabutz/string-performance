@@ -1,7 +1,6 @@
 package eu.javaspecialists.playground;
 
-import org.openjdk.jol.info.ClassLayout;
-import org.openjdk.jol.info.GraphLayout;
+import org.openjdk.jol.info.*;
 
 public class StringLayout {
     public static void main(String[] args) {

@@ -13,38 +13,38 @@ import java.util.concurrent.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class InternBenchmark {
-  @Param({"100", "100000", "10000000"})
-  private int limit;
+    @Param({"100", "100000", "10000000"})
+    private int limit;
 
-  private int value;
+    private int value;
 
-  @Setup
-  public void setup() {
-    value = 100;
-  }
+    @Setup
+    public void setup() {
+        value = 100;
+    }
 
-  @Benchmark
-  public String creatingStrings(Blackhole bh) {
-    return nextValue();
-  }
+    @Benchmark
+    public String creatingStrings(Blackhole bh) {
+        return nextValue();
+    }
 
-  @Benchmark
-  public String interningString() {
-    return nextValue().intern();
-  }
+    @Benchmark
+    public String interningString() {
+        return nextValue().intern();
+    }
 
-  private final Map<String, String> cache = new ConcurrentHashMap<>();
+    private final Map<String, String> cache = new ConcurrentHashMap<>();
 
-  @Benchmark
-  public String chmString() {
-    String next = nextValue();
-    String putResult = cache.putIfAbsent(next, next);
-    return putResult == null ? next : putResult;
-  }
+    @Benchmark
+    public String chmString() {
+        String next = nextValue();
+        String putResult = cache.putIfAbsent(next, next);
+        return putResult == null ? next : putResult;
+    }
 
-  private String nextValue() {
-    value++;
-    if (value > limit) value = 0;
-    return Integer.toHexString(value);
-  }
+    private String nextValue() {
+        value++;
+        if (value > limit) value = 0;
+        return Integer.toHexString(value);
+    }
 }
