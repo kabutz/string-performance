@@ -1,12 +1,13 @@
 package eu.javaspecialists.playground.hasher;
 
 import java.util.*;
+import java.util.concurrent.*;
 
 // Java 6 get() is linear
 // Java 7 get() is also linear, but special case for Strings if you us -Djdk.map.althashing.threshold=512
 // hashes differently
 // Java 8+ get() is logarithmic when bucket has a lot of clashes
-
+// https://tinyurl.com/nisjug20
 // source code is compatible with Java 6
 public class StringDOS {
     private static final String[] zeroHashCodes = {
