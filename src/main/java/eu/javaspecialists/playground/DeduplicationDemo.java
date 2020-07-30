@@ -9,11 +9,15 @@ public class DeduplicationDemo {
         Field value = String.class.getDeclaredField("value");
         value.setAccessible(true);
         System.out.println("Before GC");
+        System.out.println((Object)heinz);
         System.out.println(value.get(s[0]));
         System.out.println(value.get(s[1]));
         System.gc();
-        Thread.sleep(100);
+        System.gc();
+        System.gc();
+        Thread.sleep(1000);
         System.out.println("After GC");
+        System.out.println((Object)heinz);
         System.out.println(value.get(s[0]));
         System.out.println(value.get(s[1]));
     }
