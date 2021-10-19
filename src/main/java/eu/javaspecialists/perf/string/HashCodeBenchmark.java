@@ -15,7 +15,7 @@ import java.util.concurrent.*;
 public class HashCodeBenchmark {
     private static final char[] lettersInLatinAlphabet = new char[26 * 2];
     static {
-        for (int i = 0; i < lettersInLatinAlphabet.length; i++) {
+        for (int i = 0; i < lettersInLatinAlphabet.length / 2; i++) {
             lettersInLatinAlphabet[i] = (char) ('a' + i);
             lettersInLatinAlphabet[i + 26] = (char) ('A' + i);
         }
