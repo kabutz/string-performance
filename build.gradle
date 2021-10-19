@@ -4,7 +4,7 @@ plugins {
     id "com.github.johnrengelman.shadow" version "5.1.0"
 }
 
-def javaVersion = JavaVersion.current()
+def javaVersion = JavaVersion.current() // use 6,7,8,11,17 for different versions
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 
@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     implementation "org.openjdk.jol:jol-core:0.9"
-    implementation "org.openjdk.jmh:jmh-core:1.21"
-    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
+    implementation "org.openjdk.jmh:jmh-core:1.12" // to support Java 6
+    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.12"  // to support Java 6
 }
 
 shadowJar {
