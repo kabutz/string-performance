@@ -33,7 +33,8 @@ public class InternBenchmark {
         return nextValue().intern();
     }
 
-    private final Map<String, String> cache = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, String> cache =
+            new ConcurrentHashMap<String, String>();
 
     @Benchmark
     public String chmString() {

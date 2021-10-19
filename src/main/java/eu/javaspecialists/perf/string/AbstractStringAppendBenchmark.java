@@ -45,12 +45,13 @@ public abstract class AbstractStringAppendBenchmark {
 
     @Setup
     public void setup() {
-        longValues = ThreadLocalRandom.current().longs(NUMBER_OF_DIFFERENT_VALUES, Long.MAX_VALUE / 2, Long.MAX_VALUE)
-                .parallel()
-                .toArray();
-        stringValues = LongStream.of(longValues)
-                .mapToObj(Long::toString)
-                .toArray(String[]::new);
+        Random random = new Random();
+        longValues = new long[NUMBER_OF_DIFFERENT_VALUES];
+        stringValues = new String[longValues.length];
+        for (int i = 0; i < longValues.length; i++) {
+            longValues[i] = random.nextLong() / 2 + (Long.MAX_VALUE / 2);
+            stringValues[i] = "" + longValues[i];
+        }
         byteWatcher = new ByteWatcherSingleThread();
         byteWatcher.reset();
     }

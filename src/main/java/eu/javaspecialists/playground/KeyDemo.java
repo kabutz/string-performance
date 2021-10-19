@@ -5,7 +5,7 @@ import java.util.concurrent.*;
 
 public class KeyDemo {
     public static void main(String... args) {
-        Map<Key, String> keys = new ConcurrentHashMap<>();
+        Map<Key, String> keys = new ConcurrentHashMap<Key, String>();
         long time = System.nanoTime();
         try {
             for (int i = 0; i < 30; i++) {
@@ -13,7 +13,7 @@ public class KeyDemo {
             }
         } finally {
             time = System.nanoTime() - time;
-            System.out.printf("time = %dms%n", (time / 1_000_000));
+            System.out.printf("time = %dms%n", (time / 1000000));
         }
 
         time = System.nanoTime();
@@ -23,7 +23,7 @@ public class KeyDemo {
             }
         } finally {
             time = System.nanoTime() - time;
-            System.out.printf("time = %dms%n", (time / 1_000_000));
+            System.out.printf("time = %dms%n", (time / 1000000));
         }
     }
 }

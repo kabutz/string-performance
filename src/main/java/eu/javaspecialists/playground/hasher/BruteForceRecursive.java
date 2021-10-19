@@ -19,7 +19,7 @@ public class BruteForceRecursive extends BruteForceBase {
             findZeroHashCodes(new byte[7], 0);
         } finally {
             time = System.nanoTime() - time;
-            System.out.printf("start = %dms%n", (time / 1_000_000));
+            System.out.printf("start = %dms%n", (time / 1000000));
         }
     }
 

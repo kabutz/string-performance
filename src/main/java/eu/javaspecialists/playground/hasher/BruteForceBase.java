@@ -17,10 +17,10 @@ public abstract class BruteForceBase {
 
     protected static void checkProgress() {
         if (DEBUG) {
-            if (++number % 10_000_000_000L == 0) {
+            if (++number % 10000000000L == 0) {
                 System.out.println("number = " + number);
                 time = System.nanoTime() - time;
-                System.out.println("start = " + time / 1_000_000 + "ms");
+                System.out.println("start = " + time / 1000000 + "ms");
                 time = System.nanoTime();
             }
         }

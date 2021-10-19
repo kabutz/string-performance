@@ -3,6 +3,7 @@ package eu.javaspecialists.perf.string;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.*;
 
+import java.util.*;
 import java.util.concurrent.*;
 
 @Fork(3)
@@ -12,6 +13,13 @@ import java.util.concurrent.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class HashCodeBenchmark {
+    private static final char[] lettersInLatinAlphabet = new char[26 * 2];
+    static {
+        for (int i = 0; i < lettersInLatinAlphabet.length; i++) {
+            lettersInLatinAlphabet[i] = (char) ('a' + i);
+            lettersInLatinAlphabet[i + 26] = (char) ('A' + i);
+        }
+    }
     @Param({"100", "1000", "10000"})
     private int length;
 
@@ -19,9 +27,10 @@ public class HashCodeBenchmark {
 
     @Setup
     public void setup() {
+        Random random = new Random();
         value = new char[length];
         for (int i = 0; i < value.length; i++) {
-            value[i] = (char) ThreadLocalRandom.current().nextInt('A', 'z');
+            value[i] = lettersInLatinAlphabet[random.nextInt(lettersInLatinAlphabet.length)];
         }
         System.out.println(new String(value));
     }
