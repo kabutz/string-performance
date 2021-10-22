@@ -6,20 +6,12 @@ import java.text.*;
 import java.util.*;
 
 public class StringAppenderByteCount {
+    private static volatile Object leak;
     private String title = "String benchmarks";
     private long id1 = 2734923874L;
     private long id2 = 100100;
     private String optiontxt1 = "plus vs concat";
     private String optiontxt2 = "StringBuilder";
-    private MessageFormat messageFormat;
-
-    public StringAppenderByteCount() {
-        messageFormat = new MessageFormat("<h1>{0}</h1><ul><li><b>{1}</b> {2}</li><li><b>{3}</b> {4}</li></ul>", Locale.US);
-        NumberFormat integerInstance = NumberFormat.getIntegerInstance(Locale.US);
-        integerInstance.setGroupingUsed(false);
-        messageFormat.setFormat(1, integerInstance);
-        messageFormat.setFormat(3, integerInstance);
-    }
 
     public String plus() {
         //        4                      16                   5                          12                5                       10
@@ -33,10 +25,6 @@ public class StringAppenderByteCount {
 
     public String format() {
         return String.format("<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>", title, id1, optiontxt1, id2, optiontxt2);
-    }
-
-    public String message_format() {
-        return messageFormat.format(new Object[]{title, id1, optiontxt1, id2, optiontxt2});
     }
 
     public String sb() {
@@ -74,48 +62,68 @@ public class StringAppenderByteCount {
                 .append("</li></ol>").toString();
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) throws InterruptedException {
         StringAppenderByteCount bc = new StringAppenderByteCount();
 
         ByteWatcherSingleThread bw = new ByteWatcherSingleThread();
         for (int i = 0; i < 1000000; i++) {
-            bc.plus();
-            bc.sb_sized();
-            bc.sb();
-            bc.concat();
-            bc.message_format();
-            bc.format();
+            leak = bc.object();
+            leak = bc.makeLong();
+            leak = bc.plus();
+            leak = bc.sb_sized();
+            leak = bc.sb();
+            leak = bc.concat();
+            leak = bc.format();
         }
 
+        for (int i = 0; i < 5; i++) {
+            test(bc, bw);
+            System.out.println();
+            Thread.sleep(1000);
+        }
+
+    }
+    private static void test(StringAppenderByteCount bc, ByteWatcherSingleThread bw) {
         bw.reset();
-        bc.plus();
+        leak = bc.object();
+        long object_bytes = bw.calculateAllocations();
+
+        bw.reset();
+        leak = bc.makeLong();
+        long long_bytes = bw.calculateAllocations();
+
+        bw.reset();
+        leak = bc.plus();
         long plus_bytes = bw.calculateAllocations();
 
         bw.reset();
-        bc.sb_sized();
+        leak = bc.sb_sized();
         long sb_sized_bytes = bw.calculateAllocations();
 
         bw.reset();
-        bc.sb();
+        leak = bc.sb();
         long sb_bytes = bw.calculateAllocations();
 
         bw.reset();
-        bc.concat();
+        leak = bc.concat();
         long concat_bytes = bw.calculateAllocations();
 
         bw.reset();
-        bc.message_format();
-        long message_format_bytes = bw.calculateAllocations();
-
-        bw.reset();
-        bc.format();
+        leak = bc.format();
         long format_bytes = bw.calculateAllocations();
 
+        if (object_bytes != 16) throw new AssertionError();
+        if (long_bytes != 24) throw new AssertionError();
         System.out.println("plus_bytes = " + plus_bytes);
         System.out.println("sb_sized_bytes = " + sb_sized_bytes);
         System.out.println("sb_bytes = " + sb_bytes);
         System.out.println("concat_bytes = " + concat_bytes);
-        System.out.println("message_format_bytes = " + message_format_bytes);
         System.out.println("format_bytes = " + format_bytes);
+    }
+    private Object object() {
+        return new Object();
+    }
+    private Long makeLong() {
+        return 42000000000000L;
     }
 }

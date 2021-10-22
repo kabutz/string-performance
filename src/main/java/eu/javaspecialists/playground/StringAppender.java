@@ -1,6 +1,8 @@
 package eu.javaspecialists.playground;
 
 public class StringAppender {
+    private static String leak;
+
     public static String appendBasic(
             String question, String answer1, String answer2) {
         return "<h1>" + question + "</h1><ol><li>" + answer1 +
@@ -31,4 +33,23 @@ public class StringAppender {
     }
 
 
+    public static void main(String... args) {
+        String question = "What is the question?";
+        String answer1 = "Answer 1";
+        String answer2 = "Answer 2";
+        for (int i = 0; i < 10; i++) {
+            test(question, answer1, answer2);
+        }
+    }
+    private static void test(String question, String answer1, String answer2) {
+        long time = System.nanoTime();
+        try {
+            for (int i = 0; i < 20_000_000; i++) {
+                leak = appendFormat(question, answer1, answer2);
+            }
+        } finally {
+            time = System.nanoTime() - time;
+            System.out.printf("time = %dms%n", (time / 1_000_000));
+        }
+    }
 }
