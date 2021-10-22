@@ -1,0 +1,394 @@
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 17, VM 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -Djava.lang.invoke.stringConcat=MH_SB_SIZED
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.plus
+
+# Run progress: 0.00% complete, ETA 00:02:15
+# Fork: 1 of 3
+# Warmup Iteration   1: 79.576 ns/op
+# Warmup Iteration   2: 74.850 ns/op
+# Warmup Iteration   3: 72.359 ns/op
+# Warmup Iteration   4: 72.684 ns/op
+# Warmup Iteration   5: 72.946 ns/op
+Iteration   1: 72.896 ns/op
+                 ·gc.alloc.rate:                   1988.617 MB/sec
+                 ·gc.alloc.rate.norm:              152.036 B/op
+                 ·gc.churn.PS_Eden_Space:          1971.735 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.746 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.312 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.024 B/op
+                 ·gc.count:                        50.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   2: 73.134 ns/op
+                 ·gc.alloc.rate:                   1982.149 MB/sec
+                 ·gc.alloc.rate.norm:              152.034 B/op
+                 ·gc.churn.PS_Eden_Space:          1985.268 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.273 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.437 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.034 B/op
+                 ·gc.count:                        48.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   3: 72.744 ns/op
+                 ·gc.alloc.rate:                   1992.561 MB/sec
+                 ·gc.alloc.rate.norm:              152.023 B/op
+                 ·gc.churn.PS_Eden_Space:          2009.948 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.349 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.375 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.029 B/op
+                 ·gc.count:                        32.000 counts
+                 ·gc.time:                         13.000 ms
+
+Iteration   4: 72.923 ns/op
+                 ·gc.alloc.rate:                   1987.830 MB/sec
+                 ·gc.alloc.rate.norm:              152.032 B/op
+                 ·gc.churn.PS_Eden_Space:          1969.741 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.648 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.437 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.033 B/op
+                 ·gc.count:                        45.000 counts
+                 ·gc.time:                         13.000 ms
+
+Iteration   5: 72.763 ns/op
+                 ·gc.alloc.rate:                   1992.384 MB/sec
+                 ·gc.alloc.rate.norm:              152.042 B/op
+                 ·gc.churn.PS_Eden_Space:          1987.282 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     151.653 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.312 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.024 B/op
+                 ·gc.count:                        60.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration   6: 72.731 ns/op
+                 ·gc.alloc.rate:                   1993.269 MB/sec
+                 ·gc.alloc.rate.norm:              152.041 B/op
+                 ·gc.churn.PS_Eden_Space:          2002.059 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.711 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.344 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.026 B/op
+                 ·gc.count:                        58.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration   7: 72.717 ns/op
+                 ·gc.alloc.rate:                   1993.434 MB/sec
+                 ·gc.alloc.rate.norm:              152.025 B/op
+                 ·gc.churn.PS_Eden_Space:          1997.551 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.339 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.328 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.025 B/op
+                 ·gc.count:                        35.000 counts
+                 ·gc.time:                         13.000 ms
+
+Iteration   8: 72.708 ns/op
+                 ·gc.alloc.rate:                   1993.708 MB/sec
+                 ·gc.alloc.rate.norm:              152.027 B/op
+                 ·gc.churn.PS_Eden_Space:          1990.309 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     151.768 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.281 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.021 B/op
+                 ·gc.count:                        39.000 counts
+                 ·gc.time:                         11.000 ms
+
+Iteration   9: 73.062 ns/op
+                 ·gc.alloc.rate:                   1984.260 MB/sec
+                 ·gc.alloc.rate.norm:              152.041 B/op
+                 ·gc.churn.PS_Eden_Space:          1986.822 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.238 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.250 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.019 B/op
+                 ·gc.count:                        59.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration  10: 73.065 ns/op
+                 ·gc.alloc.rate:                   1984.141 MB/sec
+                 ·gc.alloc.rate.norm:              152.043 B/op
+                 ·gc.churn.PS_Eden_Space:          2004.279 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.587 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.031 B/op
+                 ·gc.count:                        62.000 counts
+                 ·gc.time:                         17.000 ms
+
+
+# Run progress: 33.33% complete, ETA 00:01:30
+# Fork: 2 of 3
+# Warmup Iteration   1: 74.789 ns/op
+# Warmup Iteration   2: 63.441 ns/op
+# Warmup Iteration   3: 67.438 ns/op
+# Warmup Iteration   4: 64.533 ns/op
+# Warmup Iteration   5: 64.554 ns/op
+Iteration   1: 64.468 ns/op
+                 ·gc.alloc.rate:                   2248.532 MB/sec
+                 ·gc.alloc.rate.norm:              152.033 B/op
+                 ·gc.churn.PS_Eden_Space:          2260.166 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.819 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.500 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.034 B/op
+                 ·gc.count:                        52.000 counts
+                 ·gc.time:                         15.000 ms
+
+Iteration   2: 64.643 ns/op
+                 ·gc.alloc.rate:                   2242.505 MB/sec
+                 ·gc.alloc.rate.norm:              152.034 B/op
+                 ·gc.churn.PS_Eden_Space:          2248.951 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.471 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.028 B/op
+                 ·gc.count:                        54.000 counts
+                 ·gc.time:                         15.000 ms
+
+Iteration   3: 64.654 ns/op
+                 ·gc.alloc.rate:                   2242.140 MB/sec
+                 ·gc.alloc.rate.norm:              152.036 B/op
+                 ·gc.churn.PS_Eden_Space:          2251.218 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.651 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.516 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.035 B/op
+                 ·gc.count:                        57.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration   4: 65.325 ns/op
+                 ·gc.alloc.rate:                   2219.092 MB/sec
+                 ·gc.alloc.rate.norm:              152.029 B/op
+                 ·gc.churn.PS_Eden_Space:          2201.764 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.842 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.266 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.018 B/op
+                 ·gc.count:                        46.000 counts
+                 ·gc.time:                         18.000 ms
+
+Iteration   5: 64.500 ns/op
+                 ·gc.alloc.rate:                   2247.647 MB/sec
+                 ·gc.alloc.rate.norm:              152.041 B/op
+                 ·gc.churn.PS_Eden_Space:          2266.779 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.335 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.484 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.033 B/op
+                 ·gc.count:                        67.000 counts
+                 ·gc.time:                         18.000 ms
+
+Iteration   6: 64.536 ns/op
+                 ·gc.alloc.rate:                   2246.318 MB/sec
+                 ·gc.alloc.rate.norm:              152.037 B/op
+                 ·gc.churn.PS_Eden_Space:          2253.008 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.490 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.266 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.018 B/op
+                 ·gc.count:                        60.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   7: 64.983 ns/op
+                 ·gc.alloc.rate:                   2230.757 MB/sec
+                 ·gc.alloc.rate.norm:              152.027 B/op
+                 ·gc.churn.PS_Eden_Space:          2204.541 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.240 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.028 B/op
+                 ·gc.count:                        43.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration   8: 64.879 ns/op
+                 ·gc.alloc.rate:                   2234.345 MB/sec
+                 ·gc.alloc.rate.norm:              152.029 B/op
+                 ·gc.churn.PS_Eden_Space:          2227.790 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     151.583 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.028 B/op
+                 ·gc.count:                        46.000 counts
+                 ·gc.time:                         19.000 ms
+
+Iteration   9: 64.932 ns/op
+                 ·gc.alloc.rate:                   2232.502 MB/sec
+                 ·gc.alloc.rate.norm:              152.027 B/op
+                 ·gc.churn.PS_Eden_Space:          2257.813 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.751 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.028 B/op
+                 ·gc.count:                        44.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration  10: 64.926 ns/op
+                 ·gc.alloc.rate:                   2232.727 MB/sec
+                 ·gc.alloc.rate.norm:              152.030 B/op
+                 ·gc.churn.PS_Eden_Space:          2219.755 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     151.147 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.328 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.022 B/op
+                 ·gc.count:                        49.000 counts
+                 ·gc.time:                         15.000 ms
+
+
+# Run progress: 66.67% complete, ETA 00:00:45
+# Fork: 3 of 3
+# Warmup Iteration   1: 70.091 ns/op
+# Warmup Iteration   2: 68.182 ns/op
+# Warmup Iteration   3: 70.348 ns/op
+# Warmup Iteration   4: 67.252 ns/op
+# Warmup Iteration   5: 67.345 ns/op
+Iteration   1: 67.488 ns/op
+                 ·gc.alloc.rate:                   2148.018 MB/sec
+                 ·gc.alloc.rate.norm:              152.035 B/op
+                 ·gc.churn.PS_Eden_Space:          2166.744 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.360 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.029 B/op
+                 ·gc.count:                        53.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   2: 67.212 ns/op
+                 ·gc.alloc.rate:                   2156.861 MB/sec
+                 ·gc.alloc.rate.norm:              152.039 B/op
+                 ·gc.churn.PS_Eden_Space:          2137.223 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.654 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.437 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.031 B/op
+                 ·gc.count:                        59.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   3: 67.146 ns/op
+                 ·gc.alloc.rate:                   2158.996 MB/sec
+                 ·gc.alloc.rate.norm:              152.042 B/op
+                 ·gc.churn.PS_Eden_Space:          2162.425 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.283 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.422 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.030 B/op
+                 ·gc.count:                        64.000 counts
+                 ·gc.time:                         17.000 ms
+
+Iteration   4: 68.170 ns/op
+                 ·gc.alloc.rate:                   2126.567 MB/sec
+                 ·gc.alloc.rate.norm:              152.037 B/op
+                 ·gc.churn.PS_Eden_Space:          2145.267 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.374 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.328 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.023 B/op
+                 ·gc.count:                        56.000 counts
+                 ·gc.time:                         18.000 ms
+
+Iteration   5: 67.529 ns/op
+                 ·gc.alloc.rate:                   2146.708 MB/sec
+                 ·gc.alloc.rate.norm:              152.034 B/op
+                 ·gc.churn.PS_Eden_Space:          2134.024 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     151.136 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.359 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.025 B/op
+                 ·gc.count:                        52.000 counts
+                 ·gc.time:                         19.000 ms
+
+Iteration   6: 66.977 ns/op
+                 ·gc.alloc.rate:                   2164.410 MB/sec
+                 ·gc.alloc.rate.norm:              152.036 B/op
+                 ·gc.churn.PS_Eden_Space:          2178.255 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.008 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.406 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.029 B/op
+                 ·gc.count:                        56.000 counts
+                 ·gc.time:                         15.000 ms
+
+Iteration   7: 67.128 ns/op
+                 ·gc.alloc.rate:                   2159.634 MB/sec
+                 ·gc.alloc.rate.norm:              152.040 B/op
+                 ·gc.churn.PS_Eden_Space:          2143.788 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     150.925 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.469 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.033 B/op
+                 ·gc.count:                        63.000 counts
+                 ·gc.time:                         18.000 ms
+
+Iteration   8: 67.162 ns/op
+                 ·gc.alloc.rate:                   2158.455 MB/sec
+                 ·gc.alloc.rate.norm:              152.036 B/op
+                 ·gc.churn.PS_Eden_Space:          2167.003 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.638 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.500 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.035 B/op
+                 ·gc.count:                        56.000 counts
+                 ·gc.time:                         16.000 ms
+
+Iteration   9: 67.561 ns/op
+                 ·gc.alloc.rate:                   2145.657 MB/sec
+                 ·gc.alloc.rate.norm:              152.029 B/op
+                 ·gc.churn.PS_Eden_Space:          2165.833 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     153.459 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.422 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.030 B/op
+                 ·gc.count:                        45.000 counts
+                 ·gc.time:                         18.000 ms
+
+Iteration  10: 66.821 ns/op
+                 ·gc.alloc.rate:                   2169.364 MB/sec
+                 ·gc.alloc.rate.norm:              152.027 B/op
+                 ·gc.churn.PS_Eden_Space:          2173.298 MB/sec
+                 ·gc.churn.PS_Eden_Space.norm:     152.303 B/op
+                 ·gc.churn.PS_Survivor_Space:      0.187 MB/sec
+                 ·gc.churn.PS_Survivor_Space.norm: 0.013 B/op
+                 ·gc.count:                        42.000 counts
+                 ·gc.time:                         12.000 ms
+
+
+
+Result "plus":
+  68.326 ±(99.9%) 2.303 ns/op [Average]
+  (min, avg, max) = (64.468, 68.326, 73.134), stdev = 3.447
+  CI (99.9%): [66.023, 70.629] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  2126.786 ±(99.9%) 70.352 MB/sec [Average]
+  (min, avg, max) = (1982.149, 2126.786, 2248.532), stdev = 105.299
+  CI (99.9%): [2056.435, 2197.138] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate.norm":
+  152.034 ±(99.9%) 0.004 B/op [Average]
+  (min, avg, max) = (152.023, 152.034, 152.043), stdev = 0.006
+  CI (99.9%): [152.030, 152.038] (assumes normal distribution)
+
+Secondary result "·gc.churn.PS_Eden_Space":
+  2129.021 ±(99.9%) 71.292 MB/sec [Average]
+  (min, avg, max) = (1969.741, 2129.021, 2266.779), stdev = 106.706
+  CI (99.9%): [2057.730, 2200.313] (assumes normal distribution)
+
+Secondary result "·gc.churn.PS_Eden_Space.norm":
+  152.193 ±(99.9%) 0.685 B/op [Average]
+  (min, avg, max) = (150.240, 152.193, 153.751), stdev = 1.025
+  CI (99.9%): [151.508, 152.878] (assumes normal distribution)
+
+Secondary result "·gc.churn.PS_Survivor_Space":
+  0.380 ±(99.9%) 0.054 MB/sec [Average]
+  (min, avg, max) = (0.187, 0.380, 0.516), stdev = 0.082
+  CI (99.9%): [0.326, 0.435] (assumes normal distribution)
+
+Secondary result "·gc.churn.PS_Survivor_Space.norm":
+  0.027 ±(99.9%) 0.004 B/op [Average]
+  (min, avg, max) = (0.013, 0.027, 0.035), stdev = 0.006
+  CI (99.9%): [0.023, 0.031] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  1552.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (32.000, 51.733, 67.000), stdev = 8.769
+  CI (99.9%): [1552.000, 1552.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  481.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (11.000, 16.033, 19.000), stdev = 2.008
+  CI (99.9%): [481.000, 481.000] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:02:15
+
+Benchmark                                                      Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.plus                                   avgt   30    68.326 ±  2.303   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate                    avgt   30  2126.786 ± 70.352  MB/sec
+StringAppenderBenchmark.plus:·gc.alloc.rate.norm               avgt   30   152.034 ±  0.004    B/op
+StringAppenderBenchmark.plus:·gc.churn.PS_Eden_Space           avgt   30  2129.021 ± 71.292  MB/sec
+StringAppenderBenchmark.plus:·gc.churn.PS_Eden_Space.norm      avgt   30   152.193 ±  0.685    B/op
+StringAppenderBenchmark.plus:·gc.churn.PS_Survivor_Space       avgt   30     0.380 ±  0.054  MB/sec
+StringAppenderBenchmark.plus:·gc.churn.PS_Survivor_Space.norm  avgt   30     0.027 ±  0.004    B/op
+StringAppenderBenchmark.plus:·gc.count                         avgt   30  1552.000           counts
+StringAppenderBenchmark.plus:·gc.time                          avgt   30   481.000               ms

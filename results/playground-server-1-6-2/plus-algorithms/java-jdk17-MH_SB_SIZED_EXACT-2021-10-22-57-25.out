@@ -1,0 +1,76 @@
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 17, VM 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC -Djava.lang.invoke.stringConcat=MH_SB_SIZED_EXACT
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.plus
+
+# Run progress: 0.00% complete, ETA 00:02:15
+# Fork: 1 of 3
+# Warmup Iteration   1: 63.557 ns/op
+# Warmup Iteration   2: 60.248 ns/op
+# Warmup Iteration   3: 61.681 ns/op
+# Warmup Iteration   4: 60.558 ns/op
+# Warmup Iteration   5: 61.923 ns/op
+Iteration   1: 61.921 ns/op
+Iteration   2: 62.043 ns/op
+Iteration   3: 63.159 ns/op
+Iteration   4: 61.831 ns/op
+Iteration   5: 62.246 ns/op
+Iteration   6: 61.634 ns/op
+Iteration   7: 61.916 ns/op
+Iteration   8: 61.705 ns/op
+Iteration   9: 62.588 ns/op
+Iteration  10: 62.738 ns/op
+
+# Run progress: 33.33% complete, ETA 00:01:30
+# Fork: 2 of 3
+# Warmup Iteration   1: 60.192 ns/op
+# Warmup Iteration   2: 60.321 ns/op
+# Warmup Iteration   3: 58.033 ns/op
+# Warmup Iteration   4: 57.534 ns/op
+# Warmup Iteration   5: 57.589 ns/op
+Iteration   1: 57.528 ns/op
+Iteration   2: 57.595 ns/op
+Iteration   3: 58.030 ns/op
+Iteration   4: 57.538 ns/op
+Iteration   5: 57.431 ns/op
+Iteration   6: 57.361 ns/op
+Iteration   7: 57.556 ns/op
+Iteration   8: 57.646 ns/op
+Iteration   9: 57.489 ns/op
+Iteration  10: 57.663 ns/op
+
+# Run progress: 66.67% complete, ETA 00:00:45
+# Fork: 3 of 3
+# Warmup Iteration   1: 76.952 ns/op
+# Warmup Iteration   2: 70.244 ns/op
+# Warmup Iteration   3: 73.051 ns/op
+# Warmup Iteration   4: 59.984 ns/op
+# Warmup Iteration   5: 59.876 ns/op
+Iteration   1: 60.087 ns/op
+Iteration   2: 60.249 ns/op
+Iteration   3: 60.021 ns/op
+Iteration   4: 60.052 ns/op
+Iteration   5: 59.834 ns/op
+Iteration   6: 60.180 ns/op
+Iteration   7: 59.630 ns/op
+Iteration   8: 59.821 ns/op
+Iteration   9: 59.810 ns/op
+Iteration  10: 60.239 ns/op
+
+
+Result "plus":
+  59.918 ±(99.9%) 1.293 ns/op [Average]
+  (min, avg, max) = (57.361, 59.918, 63.159), stdev = 1.935
+  CI (99.9%): [58.625, 61.211] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:02:15
+
+Benchmark                     Mode  Cnt   Score   Error  Units
+StringAppenderBenchmark.plus  avgt   30  59.918 ± 1.293  ns/op
