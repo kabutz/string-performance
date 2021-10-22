@@ -44,12 +44,12 @@ public class StringAppender {
     private static void test(String question, String answer1, String answer2) {
         long time = System.nanoTime();
         try {
-            for (int i = 0; i < 20_000_000; i++) {
+            for (int i = 0; i < 20000000; i++) {
                 leak = appendFormat(question, answer1, answer2);
             }
         } finally {
             time = System.nanoTime() - time;
-            System.out.printf("time = %dms%n", (time / 1_000_000));
+            System.out.printf("time = %dms%n", (time / 1000000));
         }
     }
 }
