@@ -1,0 +1,973 @@
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.appendBasic
+
+# Run progress: 0.00% complete, ETA 00:02:30
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+36.271 ns/op
+# Warmup Iteration   2: 29.560 ns/op
+# Warmup Iteration   3: 26.632 ns/op
+# Warmup Iteration   4: 26.535 ns/op
+# Warmup Iteration   5: 26.533 ns/op
+Iteration   1: 26.623 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   2: 26.794 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   3: 26.999 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   4: 26.717 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   5: 26.557 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   6: 26.656 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      14.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   7: 26.834 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   8: 26.739 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   9: 26.688 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration  10: 26.706 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+
+
+Result "appendBasic":
+  26.731 ±(99.9%) 0.186 ns/op [Average]
+  (min, avg, max) = (26.557, 26.731, 26.999), stdev = 0.123
+  CI (99.9%): [26.545, 26.918] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  136.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (9.000, 13.600, 17.000), stdev = 2.914
+  CI (99.9%): [136.000, 136.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  83.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (6.000, 8.300, 10.000), stdev = 1.567
+  CI (99.9%): [83.000, 83.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.appendStringBuilder
+
+# Run progress: 10.00% complete, ETA 00:02:17
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+36.349 ns/op
+# Warmup Iteration   2: 33.666 ns/op
+# Warmup Iteration   3: 26.476 ns/op
+# Warmup Iteration   4: 26.513 ns/op
+# Warmup Iteration   5: 26.584 ns/op
+Iteration   1: 26.621 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       2.000 ms
+
+Iteration   2: 26.785 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      6.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   3: 26.710 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   4: 26.836 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   5: 26.989 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   6: 26.972 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   7: 26.890 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      15.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   8: 26.827 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   9: 27.065 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration  10: 26.932 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      15.000 counts
+                 ·gc.time:       8.000 ms
+
+
+
+Result "appendStringBuilder":
+  26.863 ±(99.9%) 0.204 ns/op [Average]
+  (min, avg, max) = (26.621, 26.863, 27.065), stdev = 0.135
+  CI (99.9%): [26.659, 27.066] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  129.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (5.000, 12.900, 18.000), stdev = 4.557
+  CI (99.9%): [129.000, 129.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  73.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 7.300, 10.000), stdev = 2.710
+  CI (99.9%): [73.000, 73.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.appendStringBuilderSize
+
+# Run progress: 20.00% complete, ETA 00:02:02
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+38.866 ns/op
+# Warmup Iteration   2: 34.291 ns/op
+# Warmup Iteration   3: 27.414 ns/op
+# Warmup Iteration   4: 27.389 ns/op
+# Warmup Iteration   5: 27.427 ns/op
+Iteration   1: 27.521 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   2: 27.618 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      6.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   3: 27.650 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   4: 27.990 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   5: 28.305 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   6: 28.443 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   7: 28.192 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   8: 28.208 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   9: 28.357 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration  10: 28.357 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+
+
+Result "appendStringBuilderSize":
+  28.064 ±(99.9%) 0.524 ns/op [Average]
+  (min, avg, max) = (27.521, 28.064, 28.443), stdev = 0.347
+  CI (99.9%): [27.540, 28.588] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  133.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (5.000, 13.300, 17.000), stdev = 5.034
+  CI (99.9%): [133.000, 133.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  76.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 7.600, 10.000), stdev = 2.914
+  CI (99.9%): [76.000, 76.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.concat
+
+# Run progress: 30.00% complete, ETA 00:01:46
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+425.055 ns/op
+# Warmup Iteration   2: 401.348 ns/op
+# Warmup Iteration   3: 339.386 ns/op
+# Warmup Iteration   4: 339.231 ns/op
+# Warmup Iteration   5: 339.944 ns/op
+Iteration   1: 338.891 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   2: 339.415 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   3: 340.430 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   4: 341.366 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      14.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   5: 342.678 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   6: 340.295 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   7: 341.853 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   8: 342.784 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   9: 340.198 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration  10: 341.024 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+
+
+Result "concat":
+  340.893 ±(99.9%) 1.963 ns/op [Average]
+  (min, avg, max) = (338.891, 340.893, 342.784), stdev = 1.298
+  CI (99.9%): [338.930, 342.856] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  105.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (5.000, 10.500, 16.000), stdev = 3.240
+  CI (99.9%): [105.000, 105.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  66.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 6.600, 9.000), stdev = 2.271
+  CI (99.9%): [66.000, 66.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.format
+
+# Run progress: 40.00% complete, ETA 00:01:31
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+2453.071 ns/op
+# Warmup Iteration   2: 2065.178 ns/op
+# Warmup Iteration   3: 1955.149 ns/op
+# Warmup Iteration   4: 1956.838 ns/op
+# Warmup Iteration   5: 1956.960 ns/op
+Iteration   1: 1958.405 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   2: 1960.564 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   3: 1969.050 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      10.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   4: 1966.872 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   5: 1973.088 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      15.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   6: 1974.428 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      15.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   7: 1978.203 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   8: 1980.969 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   9: 1977.571 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration  10: 1980.291 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+
+
+Result "format":
+  1971.944 ±(99.9%) 12.099 ns/op [Average]
+  (min, avg, max) = (1958.405, 1971.944, 1980.969), stdev = 8.002
+  CI (99.9%): [1959.846, 1984.043] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  132.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (7.000, 13.200, 17.000), stdev = 4.077
+  CI (99.9%): [132.000, 132.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  77.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (4.000, 7.700, 10.000), stdev = 2.359
+  CI (99.9%): [77.000, 77.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.message_format
+
+# Run progress: 50.00% complete, ETA 00:01:16
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+3527.900 ns/op
+# Warmup Iteration   2: 2762.285 ns/op
+# Warmup Iteration   3: 2708.029 ns/op
+# Warmup Iteration   4: 2597.117 ns/op
+# Warmup Iteration   5: 1916.559 ns/op
+Iteration   1: 1919.393 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      12.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   2: 1927.038 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   3: 1929.671 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   4: 1926.920 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   5: 1928.857 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   6: 1929.437 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   7: 1927.871 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   8: 1931.927 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   9: 1929.746 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration  10: 1929.414 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+
+
+Result "message_format":
+  1928.027 ±(99.9%) 5.096 ns/op [Average]
+  (min, avg, max) = (1919.393, 1928.027, 1931.927), stdev = 3.370
+  CI (99.9%): [1922.932, 1933.123] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  165.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (12.000, 16.500, 18.000), stdev = 1.716
+  CI (99.9%): [165.000, 165.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  93.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (6.000, 9.300, 10.000), stdev = 1.252
+  CI (99.9%): [93.000, 93.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.message_format_cached_instance
+
+# Run progress: 60.00% complete, ETA 00:01:00
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+897.952 ns/op
+# Warmup Iteration   2: 760.382 ns/op
+# Warmup Iteration   3: 757.987 ns/op
+# Warmup Iteration   4: 720.020 ns/op
+# Warmup Iteration   5: 491.300 ns/op
+Iteration   1: 492.812 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   2: 492.306 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   3: 495.546 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   4: 492.760 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   5: 492.655 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   6: 493.332 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   7: 493.077 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   8: 492.894 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   9: 493.059 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration  10: 492.617 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      15.000 counts
+                 ·gc.time:       9.000 ms
+
+
+
+Result "message_format_cached_instance":
+  493.106 ±(99.9%) 1.365 ns/op [Average]
+  (min, avg, max) = (492.306, 493.106, 495.546), stdev = 0.903
+  CI (99.9%): [491.740, 494.471] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  169.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (15.000, 16.900, 18.000), stdev = 0.994
+  CI (99.9%): [169.000, 169.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  95.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (8.000, 9.500, 10.000), stdev = 0.707
+  CI (99.9%): [95.000, 95.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.plus
+
+# Run progress: 70.00% complete, ETA 00:00:45
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+198.936 ns/op
+# Warmup Iteration   2: 186.988 ns/op
+# Warmup Iteration   3: 173.614 ns/op
+# Warmup Iteration   4: 154.572 ns/op
+# Warmup Iteration   5: 152.786 ns/op
+Iteration   1: 155.804 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      3.000 counts
+                 ·gc.time:       2.000 ms
+
+Iteration   2: 156.130 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      3.000 counts
+                 ·gc.time:       2.000 ms
+
+Iteration   3: 156.107 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      4.000 counts
+                 ·gc.time:       2.000 ms
+
+Iteration   4: 157.249 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   5: 156.279 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   6: 155.582 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      8.000 counts
+                 ·gc.time:       4.000 ms
+
+Iteration   7: 154.287 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   8: 152.923 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   9: 154.736 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      8.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration  10: 156.616 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      11.000 counts
+                 ·gc.time:       6.000 ms
+
+
+
+Result "plus":
+  155.571 ±(99.9%) 1.914 ns/op [Average]
+  (min, avg, max) = (152.923, 155.571, 157.249), stdev = 1.266
+  CI (99.9%): [153.658, 157.485] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  65.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (3.000, 6.500, 11.000), stdev = 2.991
+  CI (99.9%): [65.000, 65.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  47.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (2.000, 4.700, 10.000), stdev = 2.541
+  CI (99.9%): [47.000, 47.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.sb
+
+# Run progress: 80.00% complete, ETA 00:00:30
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+210.392 ns/op
+# Warmup Iteration   2: 198.233 ns/op
+# Warmup Iteration   3: 169.055 ns/op
+# Warmup Iteration   4: 168.815 ns/op
+# Warmup Iteration   5: 169.089 ns/op
+Iteration   1: 169.037 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   2: 168.813 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   3: 169.047 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   4: 168.949 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   5: 169.296 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      12.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   6: 169.901 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration   7: 169.944 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      18.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   8: 169.495 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   9: 172.025 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       11.000 ms
+
+Iteration  10: 170.450 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      4.000 counts
+                 ·gc.time:       11.000 ms
+
+
+
+Result "sb":
+  169.696 ±(99.9%) 1.468 ns/op [Average]
+  (min, avg, max) = (168.813, 169.696, 172.025), stdev = 0.971
+  CI (99.9%): [168.228, 171.164] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  96.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 9.600, 18.000), stdev = 4.904
+  CI (99.9%): [96.000, 96.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  72.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 7.200, 11.000), stdev = 3.084
+  CI (99.9%): [72.000, 72.000] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2029 days ago, please consider updating!)
+# VM version: JDK 1.6.0-119, VM 23.77-b119
+# VM invoker: /opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/bin/java
+# VM options: -Xmx8g -XX:-TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.sb_sized
+
+# Run progress: 90.00% complete, ETA 00:00:15
+# Fork: 1 of 1
+# Warmup Iteration   1: Allocation profiling is not available: com.sun.management.ThreadMXBean
+Churn profiling is not available: GarbageCollectorMXBean cannot notify
+140.295 ns/op
+# Warmup Iteration   2: 131.461 ns/op
+# Warmup Iteration   3: 107.078 ns/op
+# Warmup Iteration   4: 107.112 ns/op
+# Warmup Iteration   5: 107.321 ns/op
+Iteration   1: 107.478 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      4.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   2: 107.546 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      5.000 counts
+                 ·gc.time:       3.000 ms
+
+Iteration   3: 108.010 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      6.000 counts
+                 ·gc.time:       6.000 ms
+
+Iteration   4: 108.010 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   5: 109.805 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      7.000 counts
+                 ·gc.time:       7.000 ms
+
+Iteration   6: 108.819 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      9.000 counts
+                 ·gc.time:       5.000 ms
+
+Iteration   7: 108.506 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      13.000 counts
+                 ·gc.time:       8.000 ms
+
+Iteration   8: 108.844 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+Iteration   9: 108.665 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      16.000 counts
+                 ·gc.time:       9.000 ms
+
+Iteration  10: 108.774 ns/op
+                 ·gc.alloc.rate: NaN MB/sec
+                 ·gc.count:      17.000 counts
+                 ·gc.time:       10.000 ms
+
+
+
+Result "sb_sized":
+  108.446 ±(99.9%) 1.061 ns/op [Average]
+  (min, avg, max) = (107.478, 108.446, 109.805), stdev = 0.702
+  CI (99.9%): [107.385, 109.507] (assumes normal distribution)
+
+Secondary result "·gc.alloc.rate":
+  NaN ±(99.9%) NaN MB/sec [Average]
+  (min, avg, max) = (NaN, NaN, NaN), stdev = NaN
+  CI (99.9%): [NaN, NaN] (assumes normal distribution)
+
+Secondary result "·gc.count":
+  103.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 10.300, 17.000), stdev = 5.056
+  CI (99.9%): [103.000, 103.000] (assumes normal distribution)
+
+Secondary result "·gc.time":
+  69.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (3.000, 6.900, 10.000), stdev = 2.601
+  CI (99.9%): [69.000, 69.000] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:02:32
+
+Benchmark                                                              Mode  Cnt     Score    Error   Units
+StringAppenderBenchmark.appendBasic                                    avgt   10    26.731 ±  0.186   ns/op
+StringAppenderBenchmark.appendBasic:·gc.alloc.rate                     avgt   10       NaN           MB/sec
+StringAppenderBenchmark.appendBasic:·gc.count                          avgt   10   136.000           counts
+StringAppenderBenchmark.appendBasic:·gc.time                           avgt   10    83.000               ms
+StringAppenderBenchmark.appendStringBuilder                            avgt   10    26.863 ±  0.204   ns/op
+StringAppenderBenchmark.appendStringBuilder:·gc.alloc.rate             avgt   10       NaN           MB/sec
+StringAppenderBenchmark.appendStringBuilder:·gc.count                  avgt   10   129.000           counts
+StringAppenderBenchmark.appendStringBuilder:·gc.time                   avgt   10    73.000               ms
+StringAppenderBenchmark.appendStringBuilderSize                        avgt   10    28.064 ±  0.524   ns/op
+StringAppenderBenchmark.appendStringBuilderSize:·gc.alloc.rate         avgt   10       NaN           MB/sec
+StringAppenderBenchmark.appendStringBuilderSize:·gc.count              avgt   10   133.000           counts
+StringAppenderBenchmark.appendStringBuilderSize:·gc.time               avgt   10    76.000               ms
+StringAppenderBenchmark.concat                                         avgt   10   340.893 ±  1.963   ns/op
+StringAppenderBenchmark.concat:·gc.alloc.rate                          avgt   10       NaN           MB/sec
+StringAppenderBenchmark.concat:·gc.count                               avgt   10   105.000           counts
+StringAppenderBenchmark.concat:·gc.time                                avgt   10    66.000               ms
+StringAppenderBenchmark.format                                         avgt   10  1971.944 ± 12.099   ns/op
+StringAppenderBenchmark.format:·gc.alloc.rate                          avgt   10       NaN           MB/sec
+StringAppenderBenchmark.format:·gc.count                               avgt   10   132.000           counts
+StringAppenderBenchmark.format:·gc.time                                avgt   10    77.000               ms
+StringAppenderBenchmark.message_format                                 avgt   10  1928.027 ±  5.096   ns/op
+StringAppenderBenchmark.message_format:·gc.alloc.rate                  avgt   10       NaN           MB/sec
+StringAppenderBenchmark.message_format:·gc.count                       avgt   10   165.000           counts
+StringAppenderBenchmark.message_format:·gc.time                        avgt   10    93.000               ms
+StringAppenderBenchmark.message_format_cached_instance                 avgt   10   493.106 ±  1.365   ns/op
+StringAppenderBenchmark.message_format_cached_instance:·gc.alloc.rate  avgt   10       NaN           MB/sec
+StringAppenderBenchmark.message_format_cached_instance:·gc.count       avgt   10   169.000           counts
+StringAppenderBenchmark.message_format_cached_instance:·gc.time        avgt   10    95.000               ms
+StringAppenderBenchmark.plus                                           avgt   10   155.571 ±  1.914   ns/op
+StringAppenderBenchmark.plus:·gc.alloc.rate                            avgt   10       NaN           MB/sec
+StringAppenderBenchmark.plus:·gc.count                                 avgt   10    65.000           counts
+StringAppenderBenchmark.plus:·gc.time                                  avgt   10    47.000               ms
+StringAppenderBenchmark.sb                                             avgt   10   169.696 ±  1.468   ns/op
+StringAppenderBenchmark.sb:·gc.alloc.rate                              avgt   10       NaN           MB/sec
+StringAppenderBenchmark.sb:·gc.count                                   avgt   10    96.000           counts
+StringAppenderBenchmark.sb:·gc.time                                    avgt   10    72.000               ms
+StringAppenderBenchmark.sb_sized                                       avgt   10   108.446 ±  1.061   ns/op
+StringAppenderBenchmark.sb_sized:·gc.alloc.rate                        avgt   10       NaN           MB/sec
+StringAppenderBenchmark.sb_sized:·gc.count                             avgt   10   103.000           counts
+StringAppenderBenchmark.sb_sized:·gc.time                              avgt   10    69.000               ms
