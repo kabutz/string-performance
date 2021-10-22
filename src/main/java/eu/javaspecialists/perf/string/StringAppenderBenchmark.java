@@ -46,6 +46,13 @@ public class StringAppenderBenchmark {
         return String.format("<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>", title, id1, optiontxt1, id2, optiontxt2);
     }
 
+    private static final String FORMAT =
+            "<h1>%s</h1><ul><li><b>%d</b> %s</li><li><b>%d</b> %s</li></ul>";
+    @Benchmark
+    public String formatted() {
+        return FORMAT.formatted(title, id1, optiontxt1, id2, optiontxt2);
+    }
+
     @Benchmark
     public String message_format_cached_instance() {
         return messageFormat.format(new Object[]{title, id1, optiontxt1, id2, optiontxt2});
