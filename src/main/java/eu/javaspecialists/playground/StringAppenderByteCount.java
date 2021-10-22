@@ -5,13 +5,15 @@ import eu.javaspecialists.perf.util.*;
 import java.text.*;
 import java.util.*;
 
+import static eu.javaspecialists.perf.string.StringAppenderConstants.*;
+
 public class StringAppenderByteCount {
     private static volatile Object leak;
-    private String title = "String benchmarks";
-    private long id1 = 2734923874L;
-    private long id2 = 100100;
-    private String optiontxt1 = "plus vs concat";
-    private String optiontxt2 = "StringBuilder";
+    private String title = STRING_BENCHMARKS;
+    private long id1 = ID1;
+    private long id2 = ID2;
+    private String optiontxt1 = PLUS_VS_CONCAT;
+    private String optiontxt2 = STRING_BUILDER;
 
     public String plus() {
         //        4                      16                   5                          12                5                       10
