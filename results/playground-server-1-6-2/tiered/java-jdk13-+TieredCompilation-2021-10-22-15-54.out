@@ -1,0 +1,368 @@
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 13.0.9, VM 13.0.9+3-MTS
+# VM invoker: /opt/zulu13.44.13-ca-jdk13.0.9-linux_x64/bin/java
+# VM options: -Xmx8g -XX:+TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.mixed_1_plus
+
+# Run progress: 0.00% complete, ETA 00:11:15
+# Fork: 1 of 3
+# Warmup Iteration   1: 65.268 ns/op
+# Warmup Iteration   2: 63.899 ns/op
+# Warmup Iteration   3: 63.562 ns/op
+# Warmup Iteration   4: 63.531 ns/op
+# Warmup Iteration   5: 63.346 ns/op
+Iteration   1: 63.286 ns/op
+Iteration   2: 63.316 ns/op
+Iteration   3: 63.897 ns/op
+Iteration   4: 63.827 ns/op
+Iteration   5: 63.875 ns/op
+Iteration   6: 63.854 ns/op
+Iteration   7: 63.865 ns/op
+Iteration   8: 63.899 ns/op
+Iteration   9: 63.379 ns/op
+Iteration  10: 63.379 ns/op
+
+# Run progress: 6.67% complete, ETA 00:10:33
+# Fork: 2 of 3
+# Warmup Iteration   1: 64.681 ns/op
+# Warmup Iteration   2: 63.305 ns/op
+# Warmup Iteration   3: 80.699 ns/op
+# Warmup Iteration   4: 80.509 ns/op
+# Warmup Iteration   5: 80.594 ns/op
+Iteration   1: 80.208 ns/op
+Iteration   2: 79.970 ns/op
+Iteration   3: 80.409 ns/op
+Iteration   4: 80.493 ns/op
+Iteration   5: 80.651 ns/op
+Iteration   6: 80.717 ns/op
+Iteration   7: 79.708 ns/op
+Iteration   8: 80.170 ns/op
+Iteration   9: 80.074 ns/op
+Iteration  10: 80.455 ns/op
+
+# Run progress: 13.33% complete, ETA 00:09:47
+# Fork: 3 of 3
+# Warmup Iteration   1: 76.079 ns/op
+# Warmup Iteration   2: 75.870 ns/op
+# Warmup Iteration   3: 63.419 ns/op
+# Warmup Iteration   4: 63.171 ns/op
+# Warmup Iteration   5: 63.386 ns/op
+Iteration   1: 62.941 ns/op
+Iteration   2: 63.205 ns/op
+Iteration   3: 62.936 ns/op
+Iteration   4: 63.169 ns/op
+Iteration   5: 63.135 ns/op
+Iteration   6: 63.220 ns/op
+Iteration   7: 63.455 ns/op
+Iteration   8: 64.238 ns/op
+Iteration   9: 63.486 ns/op
+Iteration  10: 63.419 ns/op
+
+
+Result "mixed_1_plus":
+  69.088 ±(99.9%) 5.385 ns/op [Average]
+  (min, avg, max) = (62.936, 69.088, 80.717), stdev = 8.061
+  CI (99.9%): [63.702, 74.473] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 13.0.9, VM 13.0.9+3-MTS
+# VM invoker: /opt/zulu13.44.13-ca-jdk13.0.9-linux_x64/bin/java
+# VM options: -Xmx8g -XX:+TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.mixed_2_sb_sized
+
+# Run progress: 20.00% complete, ETA 00:09:02
+# Fork: 1 of 3
+# Warmup Iteration   1: 84.150 ns/op
+# Warmup Iteration   2: 101.250 ns/op
+# Warmup Iteration   3: 102.333 ns/op
+# Warmup Iteration   4: 102.753 ns/op
+# Warmup Iteration   5: 102.622 ns/op
+Iteration   1: 102.402 ns/op
+Iteration   2: 102.571 ns/op
+Iteration   3: 102.395 ns/op
+Iteration   4: 102.626 ns/op
+Iteration   5: 102.453 ns/op
+Iteration   6: 102.588 ns/op
+Iteration   7: 102.791 ns/op
+Iteration   8: 102.383 ns/op
+Iteration   9: 102.198 ns/op
+Iteration  10: 102.612 ns/op
+
+# Run progress: 26.67% complete, ETA 00:08:17
+# Fork: 2 of 3
+# Warmup Iteration   1: 93.130 ns/op
+# Warmup Iteration   2: 81.396 ns/op
+# Warmup Iteration   3: 101.293 ns/op
+# Warmup Iteration   4: 101.434 ns/op
+# Warmup Iteration   5: 101.438 ns/op
+Iteration   1: 101.152 ns/op
+Iteration   2: 101.821 ns/op
+Iteration   3: 101.692 ns/op
+Iteration   4: 101.981 ns/op
+Iteration   5: 101.538 ns/op
+Iteration   6: 101.510 ns/op
+Iteration   7: 101.504 ns/op
+Iteration   8: 101.520 ns/op
+Iteration   9: 101.254 ns/op
+Iteration  10: 102.053 ns/op
+
+# Run progress: 33.33% complete, ETA 00:07:32
+# Fork: 3 of 3
+# Warmup Iteration   1: 83.992 ns/op
+# Warmup Iteration   2: 81.128 ns/op
+# Warmup Iteration   3: 100.264 ns/op
+# Warmup Iteration   4: 100.307 ns/op
+# Warmup Iteration   5: 100.297 ns/op
+Iteration   1: 100.190 ns/op
+Iteration   2: 100.237 ns/op
+Iteration   3: 100.328 ns/op
+Iteration   4: 100.279 ns/op
+Iteration   5: 100.333 ns/op
+Iteration   6: 100.223 ns/op
+Iteration   7: 100.268 ns/op
+Iteration   8: 100.200 ns/op
+Iteration   9: 100.421 ns/op
+Iteration  10: 100.207 ns/op
+
+
+Result "mixed_2_sb_sized":
+  101.458 ±(99.9%) 0.636 ns/op [Average]
+  (min, avg, max) = (100.190, 101.458, 102.791), stdev = 0.953
+  CI (99.9%): [100.821, 102.094] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 13.0.9, VM 13.0.9+3-MTS
+# VM invoker: /opt/zulu13.44.13-ca-jdk13.0.9-linux_x64/bin/java
+# VM options: -Xmx8g -XX:+TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.mixed_3_sb
+
+# Run progress: 40.00% complete, ETA 00:06:46
+# Fork: 1 of 3
+# Warmup Iteration   1: 146.785 ns/op
+# Warmup Iteration   2: 135.936 ns/op
+# Warmup Iteration   3: 130.287 ns/op
+# Warmup Iteration   4: 130.706 ns/op
+# Warmup Iteration   5: 130.336 ns/op
+Iteration   1: 129.767 ns/op
+Iteration   2: 129.785 ns/op
+Iteration   3: 130.022 ns/op
+Iteration   4: 130.346 ns/op
+Iteration   5: 129.672 ns/op
+Iteration   6: 129.680 ns/op
+Iteration   7: 129.928 ns/op
+Iteration   8: 130.456 ns/op
+Iteration   9: 130.095 ns/op
+Iteration  10: 130.332 ns/op
+
+# Run progress: 46.67% complete, ETA 00:06:01
+# Fork: 2 of 3
+# Warmup Iteration   1: 121.264 ns/op
+# Warmup Iteration   2: 113.172 ns/op
+# Warmup Iteration   3: 132.872 ns/op
+# Warmup Iteration   4: 132.997 ns/op
+# Warmup Iteration   5: 133.003 ns/op
+Iteration   1: 133.186 ns/op
+Iteration   2: 132.910 ns/op
+Iteration   3: 132.873 ns/op
+Iteration   4: 133.113 ns/op
+Iteration   5: 133.041 ns/op
+Iteration   6: 133.157 ns/op
+Iteration   7: 133.080 ns/op
+Iteration   8: 133.164 ns/op
+Iteration   9: 133.491 ns/op
+Iteration  10: 132.454 ns/op
+
+# Run progress: 53.33% complete, ETA 00:05:16
+# Fork: 3 of 3
+# Warmup Iteration   1: 132.822 ns/op
+# Warmup Iteration   2: 138.154 ns/op
+# Warmup Iteration   3: 118.044 ns/op
+# Warmup Iteration   4: 118.414 ns/op
+# Warmup Iteration   5: 117.891 ns/op
+Iteration   1: 117.675 ns/op
+Iteration   2: 118.392 ns/op
+Iteration   3: 119.064 ns/op
+Iteration   4: 117.213 ns/op
+Iteration   5: 118.257 ns/op
+Iteration   6: 117.836 ns/op
+Iteration   7: 117.870 ns/op
+Iteration   8: 117.987 ns/op
+Iteration   9: 117.847 ns/op
+Iteration  10: 118.061 ns/op
+
+
+Result "mixed_3_sb":
+  127.025 ±(99.9%) 4.414 ns/op [Average]
+  (min, avg, max) = (117.213, 127.025, 133.491), stdev = 6.607
+  CI (99.9%): [122.611, 131.440] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 13.0.9, VM 13.0.9+3-MTS
+# VM invoker: /opt/zulu13.44.13-ca-jdk13.0.9-linux_x64/bin/java
+# VM options: -Xmx8g -XX:+TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.mixed_4_concat
+
+# Run progress: 60.00% complete, ETA 00:04:31
+# Fork: 1 of 3
+# Warmup Iteration   1: 170.398 ns/op
+# Warmup Iteration   2: 149.868 ns/op
+# Warmup Iteration   3: 178.448 ns/op
+# Warmup Iteration   4: 178.208 ns/op
+# Warmup Iteration   5: 177.738 ns/op
+Iteration   1: 178.974 ns/op
+Iteration   2: 178.689 ns/op
+Iteration   3: 177.824 ns/op
+Iteration   4: 177.343 ns/op
+Iteration   5: 177.533 ns/op
+Iteration   6: 177.482 ns/op
+Iteration   7: 177.323 ns/op
+Iteration   8: 177.643 ns/op
+Iteration   9: 178.477 ns/op
+Iteration  10: 178.317 ns/op
+
+# Run progress: 66.67% complete, ETA 00:03:46
+# Fork: 2 of 3
+# Warmup Iteration   1: 159.884 ns/op
+# Warmup Iteration   2: 152.098 ns/op
+# Warmup Iteration   3: 150.122 ns/op
+# Warmup Iteration   4: 150.006 ns/op
+# Warmup Iteration   5: 149.270 ns/op
+Iteration   1: 148.573 ns/op
+Iteration   2: 148.401 ns/op
+Iteration   3: 148.217 ns/op
+Iteration   4: 148.335 ns/op
+Iteration   5: 148.666 ns/op
+Iteration   6: 150.606 ns/op
+Iteration   7: 149.415 ns/op
+Iteration   8: 150.501 ns/op
+Iteration   9: 148.447 ns/op
+Iteration  10: 148.687 ns/op
+
+# Run progress: 73.33% complete, ETA 00:03:00
+# Fork: 3 of 3
+# Warmup Iteration   1: 154.746 ns/op
+# Warmup Iteration   2: 151.878 ns/op
+# Warmup Iteration   3: 146.699 ns/op
+# Warmup Iteration   4: 146.810 ns/op
+# Warmup Iteration   5: 146.613 ns/op
+Iteration   1: 147.068 ns/op
+Iteration   2: 146.122 ns/op
+Iteration   3: 147.062 ns/op
+Iteration   4: 145.274 ns/op
+Iteration   5: 145.207 ns/op
+Iteration   6: 145.507 ns/op
+Iteration   7: 145.836 ns/op
+Iteration   8: 145.922 ns/op
+Iteration   9: 145.971 ns/op
+Iteration  10: 147.040 ns/op
+
+
+Result "mixed_4_concat":
+  157.682 ±(99.9%) 9.789 ns/op [Average]
+  (min, avg, max) = (145.207, 157.682, 178.974), stdev = 14.651
+  CI (99.9%): [147.893, 167.471] (assumes normal distribution)
+
+
+# JMH 1.12 (released 2030 days ago, please consider updating!)
+# VM version: JDK 13.0.9, VM 13.0.9+3-MTS
+# VM invoker: /opt/zulu13.44.13-ca-jdk13.0.9-linux_x64/bin/java
+# VM options: -Xmx8g -XX:+TieredCompilation -XX:+UseParallelGC
+# Warmup: 5 iterations, 5 s each
+# Measurement: 10 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: eu.javaspecialists.perf.string.StringAppenderBenchmark.mixed_5_format
+
+# Run progress: 80.00% complete, ETA 00:02:15
+# Fork: 1 of 3
+# Warmup Iteration   1: 1958.894 ns/op
+# Warmup Iteration   2: 1858.340 ns/op
+# Warmup Iteration   3: 1853.846 ns/op
+# Warmup Iteration   4: 1855.290 ns/op
+# Warmup Iteration   5: 1858.496 ns/op
+Iteration   1: 1852.067 ns/op
+Iteration   2: 1853.684 ns/op
+Iteration   3: 1851.071 ns/op
+Iteration   4: 1852.825 ns/op
+Iteration   5: 1854.010 ns/op
+Iteration   6: 1851.841 ns/op
+Iteration   7: 1851.668 ns/op
+Iteration   8: 1854.362 ns/op
+Iteration   9: 1856.958 ns/op
+Iteration  10: 1860.553 ns/op
+
+# Run progress: 86.67% complete, ETA 00:01:30
+# Fork: 2 of 3
+# Warmup Iteration   1: 1903.552 ns/op
+# Warmup Iteration   2: 1793.836 ns/op
+# Warmup Iteration   3: 1792.827 ns/op
+# Warmup Iteration   4: 1786.970 ns/op
+# Warmup Iteration   5: 1784.493 ns/op
+Iteration   1: 1788.047 ns/op
+Iteration   2: 1789.296 ns/op
+Iteration   3: 1790.292 ns/op
+Iteration   4: 1787.275 ns/op
+Iteration   5: 1784.757 ns/op
+Iteration   6: 1786.549 ns/op
+Iteration   7: 1788.454 ns/op
+Iteration   8: 1787.913 ns/op
+Iteration   9: 1790.198 ns/op
+Iteration  10: 1785.430 ns/op
+
+# Run progress: 93.33% complete, ETA 00:00:45
+# Fork: 3 of 3
+# Warmup Iteration   1: 1944.994 ns/op
+# Warmup Iteration   2: 1827.954 ns/op
+# Warmup Iteration   3: 1831.179 ns/op
+# Warmup Iteration   4: 1830.164 ns/op
+# Warmup Iteration   5: 1833.694 ns/op
+Iteration   1: 1831.416 ns/op
+Iteration   2: 1825.329 ns/op
+Iteration   3: 1823.974 ns/op
+Iteration   4: 1838.838 ns/op
+Iteration   5: 1837.038 ns/op
+Iteration   6: 1834.617 ns/op
+Iteration   7: 1842.155 ns/op
+Iteration   8: 1829.950 ns/op
+Iteration   9: 1838.391 ns/op
+Iteration  10: 1828.514 ns/op
+
+
+Result "mixed_5_format":
+  1824.916 ±(99.9%) 18.924 ns/op [Average]
+  (min, avg, max) = (1784.757, 1824.916, 1860.553), stdev = 28.324
+  CI (99.9%): [1805.992, 1843.839] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:11:18
+
+Benchmark                                 Mode  Cnt     Score    Error  Units
+StringAppenderBenchmark.mixed_1_plus      avgt   30    69.088 ±  5.385  ns/op
+StringAppenderBenchmark.mixed_2_sb_sized  avgt   30   101.458 ±  0.636  ns/op
+StringAppenderBenchmark.mixed_3_sb        avgt   30   127.025 ±  4.414  ns/op
+StringAppenderBenchmark.mixed_4_concat    avgt   30   157.682 ±  9.789  ns/op
+StringAppenderBenchmark.mixed_5_format    avgt   30  1824.916 ± 18.924  ns/op
